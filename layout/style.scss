@@ -1,0 +1,126 @@
+html, body{
+    height:100%;
+    width:100%;
+}
+
+$purpule: #ca28cf;
+
+.purpule {
+    color: $purpule;
+}
+.purpule-darker {
+    color: darken($purpule, 15);
+}
+
+.btn-purpule {
+    color: white;
+    background: #ca28cf;
+
+    &:hover {
+        color: white;
+        background: lighten(#ca28cf, 10);
+    }
+}
+
+.focim {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.szuresFocim {
+    margin-top: 50px;
+    font-family: 'Montserrat', sans-serif;
+    color: #888;
+}
+
+.controlMaxWidth {
+    max-width: 1400px;
+}
+
+.szuresForm {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 20px 0;
+    padding: 1rem;
+}
+
+.hirdetes {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 10px 0 20px;
+    // min-height: 150px;
+    padding: 1rem 1.5rem 0.5rem;
+
+    h5 {
+        font-family: 'Roboto Condensed', sans-serif;
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    p {
+        margin-bottom: 0;
+        line-height: 1.4;
+    }
+
+    .place {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        color: #b40000;
+    }
+
+    .date {
+        font-size: 0.9rem;
+        color: rgb(110, 110, 110);
+    }
+
+    .category {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        color: #b40000;
+        // color: darken($purpule, 15);
+        font-weight: bold;
+    }
+
+    .moreinfo a {
+        font-size: 0.9rem;
+        color: grey;
+        text-decoration: underline;
+    }
+}
+
+
+.footer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+// LOGIN PAGE
+
+.loginSiteContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6rem;
+}
+
+.loginBox {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 10px auto 20px;
+    padding: 1rem 1.5rem 0.5rem;
+}
+
+.alert {
+    width: 100%;
+    max-width: 500px;
+}

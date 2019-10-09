@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fe4bb9f049.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-md bg-dark navbar-dark border-bottom">
+        <div class="container-fluid controlMaxWidth">
+            <a class="navbar-brand" href="#"><i class="far fa-play-circle"></i> ZENÉSZKERESŐ</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-secondary mr-4 mt-1 py-1 text-white" href="#aHirdetesek"> Hirdetés
+                            feladása
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href="#aHirdetesek"> Hirdetések </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href="#aRegister"> Regisztráció </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aLogin"> Bejelentkezés </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <div class='container-fluid controlMaxWidth'>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h4 class="text-center szuresFocim">Szűrés</h2>
+                    <form class="szuresForm">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Hangszer</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>összes</option>
+                                <option>gitár</option>
+                                <option>ének</option>
+                                <option>dob</option>
+                                <option>billentyű</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Helyszín</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="pl: Budapest">
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">zenészek</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">zenekarok</label>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-purpule btn-block">Keres</button>
+
+                    </form>
+
+
+
+            </div>
+            <div class="col-md-9 hirdetesek">
+
+                <h3 class="mt-4 text-center focim">Hirdetések</h2>
+
+                    <div class='row mt-3'>
+                        <div class='col-md-12'>
+
+                            <div class='hirdetes'>
+                                <div class="row mb-2">
+                                    <div class="col-md-1 px-1 d-flex">
+                                        <img src="./img/prof.svg" class="w-100" alt="">
+                                    </div>
+                                    <div class="col-md-5 border-right pr-0 d-flex">
+                                        <div class="align-self-center w-100">
+                                            <h5 class="border-bottom pb-2 pr-3">Gitárost keresünk SOAD tribute
+                                                zenekarba</h5>
+                                            <div class="pr-3 d-flex justify-content-between">
+                                                <div class="place"><i class="fas fa-street-view"></i>&nbsp; Budapest</div>
+                                                <div class="category"> gitár </div>
+                                            </div>
+                                            <div class="pr-3 d-flex justify-content-between">
+                                                <div class="date"><i class="far fa-calendar-alt"></i>&nbsp; október 7.</div>
+                                                <div class="moreinfo"> <a href="#">tovább <i class="fas fa-chevron-right"></i></a></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex">
+                                        <p class="text-secondary text-justify align-self-center">Tapasztalt gitáros,
+                                            sok koncert, fények füst. Minden jó lesz, kapsz dinnyét a backstageben.
+                                            Fotó, videóanyag kell a jelentkezéshez. Cd, album
+                                            EP, minden készül. Megyünk a tv-be minden nap. </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='hirdetes'>
+                                <div class="row mb-2">
+                                    <div class="col-md-1 px-1 d-flex">
+                                        <img src="./img/prof.svg" class="w-100" alt="">
+                                    </div>
+                                    <div class="col-md-5 border-right pr-0 d-flex">
+                                        <div class="align-self-center w-100">
+                                            <h5 class="border-bottom pb-2 pr-3">A pécsi székhelyű Malac zenekar
+                                                szájharmonikást keres</h5>
+                                            <div class="pr-3 d-flex justify-content-between">
+                                                <div class="place"><i class="fas fa-street-view"></i>&nbsp; Pécs</div>
+                                                <div class="category"> szájharmonika </div>
+                                            </div>
+                                            <div class="pr-3 d-flex justify-content-between">
+                                                <div class="date"><i class="far fa-calendar-alt"></i>&nbsp; október 6.</div>
+                                                <div class="moreinfo"> <a href="#">tovább <i class="fas fa-chevron-right"></i></a></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex">
+                                        <p class="text-secondary text-justify align-self-center">Lorem ipsum, dolor sit
+                                            amet consectetur adipisicing elit. Fuga sed cumque corrupti ducimus,
+                                            expedita numquam aperiam similique, ipsum neque ab error eum aliquam, quo
+                                            ea necessitatibus earum? Ullam labore quasi aut minima voluptatibus,
+                                            cupiditate dolorem tempora facilis dicta enim, dolorum et suscipit
+                                            accusamus porro dolore laborum quidem. Possimus, animi fugiat. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='hirdetes'>
+                                <div class="row mb-2">
+                                    <div class="col-md-1 px-1 d-flex">
+                                        <img src="./img/prof.svg" class="w-100" alt="">
+                                    </div>
+                                    <div class="col-md-5 border-right pr-0 d-flex">
+                                        <div class="align-self-center w-100">
+                                            <h5 class="border-bottom pb-2 pr-3">Dobost keres a Tankcsapda </h5>
+                                            <div class="pr-3 d-flex justify-content-between">
+                                                <div class="place"><i class="fas fa-street-view"></i>&nbsp; Budapest,
+                                                    Szeged</div>
+                                                <div class="category"> DOB </div>
+                                            </div>
+                                            <div class="pr-3 d-flex justify-content-between">
+                                                <div class="date"><i class="far fa-calendar-alt"></i>&nbsp; október 2.</div>
+                                                <div class="moreinfo"> <a href="#">tovább <i class="fas fa-chevron-right"></i></a></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex">
+                                        <p class="text-secondary text-justify align-self-center">Lorem ipsum dolor sit
+                                            amet consectetur, adipisicing elit. Quisquam distinctio dolores neque
+                                            dignissimos placeat consequatur, similique doloremque! Totam voluptate ex
+                                            deserunt quaerat eos quos? Dolor repellendus est minus nihil sapiente! </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <footer class="footer bg-light py-2">
+        <div class="container">
+            <span class="text-muted">- &copy; Polyak Studio 2019 - All Rights Reserved -</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="bootstrap.js"></script>
+</body>
+
+</html>
