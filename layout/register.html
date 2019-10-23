@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/fe4bb9f049.js"></script>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fe4bb9f049.js"></script>
 
     <title>Document</title>
 </head>
@@ -51,20 +51,26 @@
         </div> -->
 
         <div class="loginBox text-center mt-3">
-            <h1 class="purpule-darker">Bejelentkezés</h1>
-            <p class="lead"><i class="fas fa-user"></i> Jelentkezz be a fiókodba</p>
+            <h1 class="red">Regisztráció</h1>
+            <p class="lead"><i class="fas fa-user"></i> Hozz létre egy új fiókot </p>
 
             <form class="form" action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Felhasználónév" name="username" required />
+                </div>
                 <div class="form-group">
                     <input type="email" class="form-control" placeholder="E-mail cím" name="email" required />
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Jelszó" name="password" />
+                    <input type="password" class="form-control" placeholder="Jelszó" name="password" minLength="6" required/>
                 </div>
-                <input type="submit" class="form-control btn btn-purpule" value="Bejelentkezés" />
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Jelszó megerősítése" name="password2" minLength="6" required/>
+                </div>
+                <input type="submit" class="form-control btn btn-red" value="Regisztráció" />
             </form>
             <p class="mt-3 text-muted">
-                Még nincs fiókod? <a href="#" >Regisztrálj!</a>
+                Már van fiókod? <a href="#">Jelentkezz be!</a>
             </p>
         </div>
 

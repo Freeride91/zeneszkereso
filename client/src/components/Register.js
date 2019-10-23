@@ -1,0 +1,94 @@
+import React, { Component } from 'react'
+import { Link, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+//redux
+import { connect } from 'react-redux';
+import { register } from "../actions/authActions";
+
+import CustomAlert from './layout/CustomAlert';
+
+class Register extends Component {
+    state = {
+        name: '',
+        email: '',
+        password: ''
+    };
+
+    static propTypes = {
+        //not required, because it can be null :)
+        isAuthenticated: PropTypes.bool,
+        register: PropTypes.func.isRequired,
+    }
+
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    onSubmit = e => {
+        e.preventDefault();
+
+        const { name, email, password } = this.state;
+
+        //create user object
+        const newUser = {
+            name,
+            email,
+            password
+        };
+
+        //attempt to register
+        this.props.register(newUser);
+
+    }
+
+    render() {
+
+        if (this.props.isAuthenticated) {
+            return <Redirect to='/ads' />
+        }
+        return (
+            <>
+                <div className="container loginSiteContainer">
+
+                    <CustomAlert />
+
+                    <div className="loginBox text-center mt-3">
+                        <h1 className="red">Regisztráció</h1>
+                        <p className="lead"><i className="fas fa-user"></i> Hozz létre egy új fiókot </p>
+
+                        <form className="form" action="#" onSubmit={e => this.onSubmit(e)}>
+                            <div className="form-group">
+                                <input onChange={this.onChange} type="text" className="form-control" placeholder="Felhasználónév" name="name" />
+                            </div>
+                            <div className="form-group">
+                                <input onChange={this.onChange} type="email" className="form-control" placeholder="E-mail cím" name="email" />
+                            </div>
+                            <div className="form-group">
+                                <input onChange={this.onChange} type="password" className="form-control" placeholder="Jelszó" name="password" minLength="6" />
+                            </div>
+                            <div className="form-group">
+                                <input onChange={this.onChange} type="password" className="form-control" placeholder="Jelszó megerősítése" name="password2" minLength="6" />
+                            </div>
+                            <input type="submit" className="form-control btn btn-red" value="Regisztráció" />
+                        </form>
+                        <p className="mt-3 text-muted">
+                            Már van fiókod? <Link to="/login">Jelentkezz be!</Link>
+                        </p>
+                    </div>
+
+                </div>
+            </>
+        )
+    }
+}
+
+
+const mapStateToProps = state => ({
+    //just one boolean field from authReducer
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { register })(Register);

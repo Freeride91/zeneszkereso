@@ -40,6 +40,29 @@ body {
   background: #e70000;
 }
 
+.btn-red:focus, .btn-red:active {
+  color: white;
+  background: #b40000;
+  outline: none;
+}
+
+.btn-nav {
+  color: white;
+  background: none;
+  border: 1px solid #b4b4b4;
+}
+
+.btn-nav:hover {
+  color: white;
+  background: #8f8f8f;
+}
+
+.btn-nav:focus, .btn-nav:active {
+  color: white;
+  background: none;
+  outline: none;
+}
+
 .focim {
   font-family: 'Montserrat', sans-serif;
 }
@@ -61,13 +84,17 @@ body {
   padding: 1rem;
 }
 
+.hirdetesekContainer {
+  margin: 0 0 50px 0;
+}
+
 .hirdetes {
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #dedede;
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   margin: 0 0 20px;
-  padding: 1rem 1.5rem 0.5rem;
+  padding: 1.5rem 2rem 1rem;
 }
 
 .hirdetes .iconUser {
@@ -90,6 +117,11 @@ body {
   text-align: center;
 }
 
+.hirdetes .author {
+  color: #880000;
+  font-size: 0.9rem;
+}
+
 .hirdetes h5 {
   font-family: 'Roboto Condensed', sans-serif;
   width: 100%;
@@ -97,6 +129,7 @@ body {
 }
 
 .hirdetes p {
+  font-size: 1rem;
   margin-bottom: 0;
   line-height: 1.4;
 }
@@ -109,20 +142,38 @@ body {
 
 .hirdetes .date {
   font-size: 0.9rem;
-  color: #6e6e6e;
+  color: #616A72;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .hirdetes .category {
   font-size: 0.9rem;
   text-transform: uppercase;
   color: #b40000;
-  font-weight: bold;
 }
 
 .hirdetes .moreinfo a {
   font-size: 0.9rem;
-  color: grey;
+  color: #616A72;
   text-decoration: underline;
+}
+
+.hirdetes .btn-adMore {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  color: #616A72;
+  font-size: 0.9rem;
+}
+
+.hirdetes .btn-adDelete {
+  width: 100%;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #d63939;
+  font-size: 0.9rem;
 }
 
 .footer {
@@ -138,7 +189,7 @@ body {
 }
 
 .loginSiteContainer {
-  height: 100%;
+  height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,23 +200,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .loginBox {
+  position: relative;
   width: 100%;
   max-width: 500px;
   background-color: #fff;
   border: 1px solid #ddd;
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  margin: 10px auto 20px;
   padding: 1rem 1.5rem 0.5rem;
-}
-
-.alert {
-  width: 100%;
-  max-width: 500px;
 }
 
 .newAdBox {
@@ -195,5 +243,40 @@ body {
 
 .divideFlexInput label {
   min-width: 120px;
+}
+
+.alert {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+}
+
+.newDiv {
+  width: 100%;
+}
+
+.showAlert-appear {
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.showAlert-appear-active {
+  height: 66px;
+  opacity: 1;
+  -webkit-transition: opacity 500ms linear, height 300ms ease-in-out;
+  transition: opacity 500ms linear, height 300ms ease-in-out;
+}
+
+.showAlert-exit {
+  height: 66px;
+  opacity: 1;
+}
+
+.showAlert-exit-active {
+  height: 0px;
+  opacity: 0;
+  -webkit-transition: opacity 500ms linear, height 300ms ease-out;
+  transition: opacity 500ms linear, height 300ms ease-out;
 }
 /*# sourceMappingURL=style.css.map */

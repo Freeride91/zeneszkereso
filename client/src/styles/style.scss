@@ -6,6 +6,8 @@ body {
 
 $purpule: #ca28cf;
 $red: #b40000;
+$darker_red: #880000;
+$text-secondary: #616A72;
 
 .purpule {
     color: $purpule;
@@ -28,6 +30,7 @@ $red: #b40000;
 .red {
     color: $red;
 }
+
 .red-darker {
     color: darken($red, 15);
 }
@@ -40,11 +43,36 @@ $red: #b40000;
         color: white;
         background: lighten($red, 10);
     }
+
+    &:focus,
+    &:active {
+        color: white;
+        background: $red;
+        outline: none;
+    }
+}
+
+.btn-nav {
+    color: rgb(255, 255, 255);
+    background: none;
+
+    border: 1px solid rgb(180, 180, 180);
+
+    &:hover {
+        color: white;
+        background: rgb(143, 143, 143);
+    }
+
+    &:focus,
+    &:active {
+        color: white;
+        background: none;
+        outline: none;
+    }
 }
 
 
 // .navbar-brand i {
-
 // }
 
 .focim {
@@ -67,13 +95,17 @@ $red: #b40000;
     padding: 1rem;
 }
 
+.hirdetesekContainer {
+    margin: 0 0 50px 0;
+}
+
 .hirdetes {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #dedede;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     margin: 0 0 20px;
     // min-height: 150px;
-    padding: 1rem 1.5rem 0.5rem;
+    padding: 1.5rem 2rem 1rem;
 
     .iconUser {
         border: 2px solid #455368;
@@ -85,6 +117,7 @@ $red: #b40000;
         font-size: 2.2rem;
         text-align: center;
     }
+
     .iconUsers {
         border: 2px solid #455368;
         background: #455368;
@@ -96,6 +129,11 @@ $red: #b40000;
         text-align: center;
     }
 
+    .author {
+        color: $darker_red;
+        font-size: 0.9rem;
+    }
+
     h5 {
         font-family: 'Roboto Condensed', sans-serif;
         width: 100%;
@@ -103,6 +141,7 @@ $red: #b40000;
     }
 
     p {
+        font-size: 1rem;
         margin-bottom: 0;
         line-height: 1.4;
     }
@@ -115,7 +154,8 @@ $red: #b40000;
 
     .date {
         font-size: 0.9rem;
-        color: rgb(110, 110, 110);
+        color: $text-secondary;
+        align-self: center;
     }
 
     .category {
@@ -123,13 +163,29 @@ $red: #b40000;
         text-transform: uppercase;
         color: #b40000;
         // color: darken($purpule, 15);
-        font-weight: bold;
+        // font-weight: bold;
     }
 
     .moreinfo a {
         font-size: 0.9rem;
-        color: grey;
+        color: $text-secondary;
         text-decoration: underline;
+    }
+
+    .btn-adMore {
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        color: $text-secondary;
+        font-size: 0.9rem;
+    }
+
+    .btn-adDelete {
+        width: 100%;
+        padding: 5px 10px;
+        font-weight: bold;
+        color: white;
+        background-color: #d63939;
+        font-size: 0.9rem;
     }
 }
 
@@ -151,26 +207,22 @@ $red: #b40000;
 // LOGIN PAGE
 
 .loginSiteContainer {
-    height: 100%;
+    // max-width: 500px;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5rem;
+    justify-content: center;
 }
 
 .loginBox {
+    position: relative;
     width: 100%;
     max-width: 500px;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    margin: 10px auto 20px;
     padding: 1rem 1.5rem 0.5rem;
-}
-
-.alert {
-    width: 100%;
-    max-width: 500px;
 }
 
 
@@ -189,6 +241,7 @@ $red: #b40000;
     label {
         color: #333;
     }
+
     i {
         color: #555;
     }
@@ -200,4 +253,39 @@ $red: #b40000;
     label {
         min-width: 120px;
     }
+}
+
+
+.alert {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+}
+
+.newDiv {
+    width: 100%;
+}
+
+//ANIMATION
+.showAlert-appear {
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.showAlert-appear-active {
+    height: 66px;
+    opacity: 1;
+    transition: opacity 500ms linear, height 300ms ease-in-out;
+}
+
+.showAlert-exit {
+    height: 66px;
+    opacity: 1;
+}
+
+.showAlert-exit-active {
+    height: 0px;
+    opacity: 0;
+    transition: opacity 500ms linear, height 300ms ease-out;
 }

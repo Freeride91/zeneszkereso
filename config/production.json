@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://andras123:andras123@devconnector-4hiay.mongodb.net/zeneszkereso?retryWrites=true&w=majority",
+    "jwtSecret": "polyakstudio_jwtsecret"
+}
