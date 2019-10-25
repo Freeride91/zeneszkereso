@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { deleteAd } from '../actions/adsActions';
 
-const Ad = ({ auth: {user, isAuthenticated}, deleteAd, ad: { _id, author, authorId, title, pers_or_band, instrument, place, description, posted_date } }) => {
+const Ad = ({ auth: {user, isLoading, isAuthenticated}, deleteAd, ad: { _id, author, authorId, title, pers_or_band, instrument, place, description, posted_date } }) => {
     return (
         <div className='hirdetes'>
             <div className="row mb-2">
@@ -28,13 +28,13 @@ const Ad = ({ auth: {user, isAuthenticated}, deleteAd, ad: { _id, author, author
 
                         <div className="pr-3 mt-2 d-flex justify-content-between">
                             <div className="date"><i className="far fa-calendar-alt"></i>&nbsp; <Moment locale="hu" format="MMMM Do, HH:mm">{posted_date}</Moment></div>
-                            <div className="moreinfo">
+                            {/* <div className="moreinfo">
                                 <button className='btn btn-adMore'>
                                     tovább <i className="fas fa-chevron-right"></i>
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
-                        {isAuthenticated && authorId === user._id ? (
+                        {!isLoading && isAuthenticated && user && authorId === user._id ? (
                             <div className="pr-3 mt-1">
                                 <button className='btn btn-adDelete' onClick={e =>
                                     deleteAd(_id)}> hirdetés törlése &nbsp; <i className="far fa-trash-alt"></i>

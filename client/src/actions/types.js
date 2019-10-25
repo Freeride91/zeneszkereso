@@ -19,3 +19,6 @@ export const AD_ERROR = 'AD_ERROR';
 export const SET_ALERT = 'SET_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
+
+// export const link = 'https://zeneszkereso.herokuapp.com/';
+export const link = 'http://localhost:5005/';

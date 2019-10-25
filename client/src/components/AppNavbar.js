@@ -12,8 +12,8 @@ class Navbar extends Component {
 
     logout = (e) => {
         this.props.logout();
-        this.props.history.push('/ads')
-        this.props.setAlert({ msg: 'Kijelentkezve!' }, 'secondary');
+        this.props.history.push('/zeneszkereso/')
+        this.props.setAlert({ msg: 'Kijelentkezve!' }, 'danger');
     }
 
     render() {
@@ -22,7 +22,7 @@ class Navbar extends Component {
                 <nav className="navbar sticky-top navbar-expand-md bg-dark navbar-dark border-bottom">
                     <div className="container-fluid controlMaxWidth">
 
-                        <Link to="/ads" className="navbar-brand"><i className="far fa-play-circle purpule"></i> ZENÉSZKERESŐ</Link>
+                        <Link to="/zeneszkereso/" className="navbar-brand"><i className="far fa-play-circle purpule"></i> ZENÉSZKERESŐ</Link>
 
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,22 +32,28 @@ class Navbar extends Component {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav ml-auto">
                                 {/* <li className="nav-item">
-                                <Link to="/ads" className="nav-link mr-4"> Hirdetések </Link>
+                                <Link to="/zeneszkereso/ads" className="nav-link mr-4"> Hirdetések </Link>
                             </li> */}
                                 {!this.props.isAuthenticated ?
-                                    (<><li className="nav-item">
-                                        <Link to="/register" className="nav-link mr-4"> Regisztráció </Link>
-                                    </li>
+                                    (<>
                                         <li className="nav-item">
-                                            <Link to="/login" className="nav-link mr-4"> Bejelentkezés </Link>
+                                            <Link to="/zeneszkereso/login" className="nav-link mt-1 mr-4 py-1 btn btn-nav">
+                                                Hirdetés feladása
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link to="/zeneszkereso/register" className="nav-link mr-4"> Regisztráció </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link to="/zeneszkereso/login" className="nav-link mr-4"> Bejelentkezés </Link>
                                         </li>
                                     </>)
                                     :
                                     (<>
                                         <li className="nav-item">
-                                            <Link to="/new_ad" className="nav-link mt-1 mr-2 py-1 btn btn-nav">
+                                            <Link to="/zeneszkereso/new_ad" className="nav-link mt-1 mr-2 py-1 btn btn-nav">
                                                 Hirdetés feladása
-                                                </Link>
+                                            </Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link to="#" className="nav-link px-3">

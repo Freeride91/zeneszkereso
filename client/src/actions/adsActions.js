@@ -4,14 +4,16 @@ import {
     GET_ADS,
     // GET_AD,
     DELETE_AD,
-    AD_ERROR
+    AD_ERROR,
+    link
 } from './types';
+
 import { setAlert } from '../actions/alertActions';
 
 // GET ALL ADS
 export const getAds = () => async dispatch => {
     try {
-        const res = await axios.get('/api/ads');
+        const res = await axios.get(link + 'api/ads');
 
         dispatch({
             type: GET_ADS,
@@ -35,14 +37,14 @@ export const newAd = (formData) => async dispatch => {
         }
     };
     try {
-        const res = await axios.post('/api/ads', formData, config);
+        const res = await axios.post(link + 'api/ads', formData, config);
 
         dispatch({
             type: NEW_AD,
             payload: res.data
         });
 
-        dispatch(setAlert({msg: 'Hirdetés feladva!'}, 'success'));
+        dispatch(setAlert({ msg: 'Hirdetés feladva!' }, 'success'));
 
     } catch (err) {
         dispatch(setAlert(err.response.data, 'danger'));
@@ -53,7 +55,7 @@ export const newAd = (formData) => async dispatch => {
 export const deleteAd = (ad_Id) => async dispatch => {
     try {
 
-        const res = await axios.delete(`/api/ads/${ad_Id}`);
+        const res = await axios.delete(link + `api/ads/${ad_Id}`);
 
         dispatch({
             type: DELETE_AD,

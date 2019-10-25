@@ -40,8 +40,8 @@ const Filter = ({ dispatch }) => {
 
             <button type="submit" className="btn btn-purpule btn-block" onClick={e => {
                 e.preventDefault();
-                dispatch(setAlert({ msg: 'Sikeres regisztráció!' }, 'success'));
-            }}>Keres</button>
+                dispatch(setAlert({ msg: 'Fejlesztés alatt!' }, 'secondary'));
+            }}>Keres - <small>fejlesztés alatt</small></button>
 
         </form>
     )

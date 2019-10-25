@@ -15,7 +15,7 @@ const User = require('../../models/User');
 router.get('/user', auth, async (req, res) => {
     try {
         //az auth middleware-ben helyeztük el a req-be a user id-t (token payload)
-        const user = await User.findById(req.user.id).select('-password');
+        const user = await User.findById(req.user._id).select('-password');
         res.json(user);
     } catch (err) {
         console.error(err.message);

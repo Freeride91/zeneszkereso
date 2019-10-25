@@ -46,15 +46,23 @@ body {
   outline: none;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: lightgray;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: white;
+}
+
 .btn-nav {
   color: white;
   background: none;
-  border: 1px solid #b4b4b4;
+  border: 1px solid lightgray;
 }
 
 .btn-nav:hover {
   color: white;
-  background: #8f8f8f;
+  background: #880000;
 }
 
 .btn-nav:focus, .btn-nav:active {

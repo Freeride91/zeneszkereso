@@ -6,13 +6,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { register } from "../actions/authActions";
 
+import { setAlert } from '../actions/alertActions';
 import CustomAlert from './layout/CustomAlert';
 
 class Register extends Component {
     state = {
         name: '',
         email: '',
-        password: ''
+        password: '',
+        password2: ''
     };
 
     static propTypes = {
@@ -30,24 +32,30 @@ class Register extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const { name, email, password } = this.state;
+        const { name, email, password, password2 } = this.state;
 
-        //create user object
-        const newUser = {
-            name,
-            email,
-            password
-        };
+        if (password !== password2) {
+            this.props.setAlert({msg: 'Jelszavak nem eggyeznek'}, 'danger');
+        } else {
+            //create user object
+            const newUser = {
+                name,
+                email,
+                password
+            };
+    
+            //attempt to register
+            this.props.register(newUser);
+        }
 
-        //attempt to register
-        this.props.register(newUser);
+       
 
     }
 
     render() {
 
         if (this.props.isAuthenticated) {
-            return <Redirect to='/ads' />
+            return <Redirect to='/zeneszkereso/ads' />
         }
         return (
             <>
@@ -75,7 +83,7 @@ class Register extends Component {
                             <input type="submit" className="form-control btn btn-red" value="Regisztráció" />
                         </form>
                         <p className="mt-3 text-muted">
-                            Már van fiókod? <Link to="/login">Jelentkezz be!</Link>
+                            Már van fiókod? <Link to="/zeneszkereso/login">Jelentkezz be!</Link>
                         </p>
                     </div>
 
@@ -91,4 +99,4 @@ const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, { register })(Register);
+export default connect(mapStateToProps, { register, setAlert })(Register);

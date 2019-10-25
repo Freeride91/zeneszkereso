@@ -44,7 +44,7 @@ class Login extends Component {
     render() {
 
         if (this.props.isAuthenticated) {
-            return <Redirect to='/ads' />
+            return <Redirect to='/zeneszkereso/ads' />
         }
         return (
             <>
@@ -79,7 +79,7 @@ class Login extends Component {
 
 
                         <p className="mt-3 text-muted">
-                            Még nincs fiókod? <Link to="/register" >Regisztrálj!</Link>
+                            Még nincs fiókod? <Link to="/zeneszkereso/register" >Regisztrálj!</Link>
                         </p>
                     </div>
                     

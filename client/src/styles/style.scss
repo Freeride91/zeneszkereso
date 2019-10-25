@@ -52,15 +52,22 @@ $text-secondary: #616A72;
     }
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(211, 211, 211);
+    &:hover {
+        color: white;
+    }
+}
+
 .btn-nav {
-    color: rgb(255, 255, 255);
+    color: white;
     background: none;
 
-    border: 1px solid rgb(180, 180, 180);
+    border: 1px solid rgb(211, 211, 211);
 
     &:hover {
         color: white;
-        background: rgb(143, 143, 143);
+        background: $darker_red;
     }
 
     &:focus,

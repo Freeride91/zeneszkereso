@@ -44,7 +44,7 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
 
         newAd(formData);
 
-        history.push('/ads');
+        history.push('/zeneszkereso/ads');
     }
 
     return (
@@ -95,7 +95,8 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
                                 onChange={e => onChange(e)} type="text"
                                 className="form-control"
                                 name="instrument"
-                                placeholder="pl: gitár" />
+                                placeholder="pl: gitár"
+                                required />
                         </div>
                     </div>
                     <div className="form-group">
@@ -124,7 +125,7 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
                     <input type="submit" className="form-control btn btn-red" value="Hirdetést felad" />
                 </form>
                 <p className="mt-3 mb-0">
-                    <Link to="/ads" className="text-secondary">
+                    <Link to="/zeneszkereso/ads" className="text-secondary">
                         <i className="fas fa-chevron-left"></i>  vissza a hirdetésekhez
                     </Link>
                 </p>

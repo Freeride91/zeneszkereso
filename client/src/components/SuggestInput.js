@@ -61,7 +61,8 @@ class SuggestInput extends Component {
     const inputProps = {
       placeholder: "pl.: Budapest",
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
+      required: "true"
     };
 
     return (

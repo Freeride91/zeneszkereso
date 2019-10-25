@@ -9,7 +9,8 @@ import {
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAIL
+  REGISTER_FAIL,
+  link
 } from './types';
 
 //CHECK USER - CHECK TOKEN (we call this every time the page loads)
@@ -17,7 +18,7 @@ export const loadUser = () => (dispatch, getState) => {
   //user loading
   dispatch({ type: USER_LOADING });
 
-  axios.get('api/auth/user', tokenConfig(getState))
+  axios.get(link + 'api/auth/user', tokenConfig(getState))
     .then(res => dispatch({
       type: USER_LOADED,
       payload: res.data
@@ -41,7 +42,7 @@ export const register = ({ name, email, password }) => dispatch => {
   //request body
   const body = JSON.stringify({ name, email, password })
 
-  axios.post('/api/users', body, config)
+  axios.post(link + 'api/users', body, config)
     .then(res => {
       dispatch({
         type: REGISTER_SUCCESS,
@@ -72,7 +73,7 @@ export const login = ({ email, password }) => async dispatch => {
   const body = JSON.stringify({ email, password })
 
   try {
-    const res = await axios.post('/api/auth', body, config);
+    const res = await axios.post(link + 'api/auth', body, config);
 
     dispatch({
       type: LOGIN_SUCCESS,
