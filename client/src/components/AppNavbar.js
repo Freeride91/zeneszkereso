@@ -31,9 +31,7 @@ class Navbar extends Component {
 
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav ml-auto">
-                                {/* <li className="nav-item">
-                                <Link to="/zeneszkereso/ads" className="nav-link mr-4"> Hirdetések </Link>
-                            </li> */}
+                                
                                 {!this.props.isAuthenticated ?
                                     (<>
                                         <li className="nav-item">
@@ -56,7 +54,7 @@ class Navbar extends Component {
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="#" className="nav-link px-3">
+                                            <Link to="/zeneszkereso/dashboard" className="nav-link px-3">
                                                 <i className="fas fa-user-circle"></i> &nbsp;
                                                 <strong>{this.props.user && (this.props.user.name)}</strong>
                                             </Link>

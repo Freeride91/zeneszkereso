@@ -28,6 +28,22 @@ export const getAds = () => async dispatch => {
     }
 }
 
+export const getAdsByUser = (userId) => async dispatch => {
+    try {
+        const res = await axios.get(link + `api/ads/user/${userId}`);
+        
+        dispatch({
+            type: GET_ADS,
+            payload: res.data
+        })
+    } catch (err) {
+        dispatch({
+            type: AD_ERROR,
+            payload: err.response.data
+        })
+    }
+}
+
 
 // CREATE NEW AD
 export const newAd = (formData) => async dispatch => {

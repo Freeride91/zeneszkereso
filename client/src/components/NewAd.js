@@ -16,6 +16,7 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
                 persOrBand: 'person'
             })
         }
+        // eslint-disable-next-line
     }, []);
 
     const [formData, setFormData] = useState({
@@ -27,8 +28,6 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
         place: '',
         description: ''
     });
-
-
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -44,7 +43,7 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
 
         newAd(formData);
 
-        history.push('/zeneszkereso/ads');
+        history.push('/zeneszkereso/');
     }
 
     return (
@@ -125,7 +124,7 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
                     <input type="submit" className="form-control btn btn-red" value="Hirdetést felad" />
                 </form>
                 <p className="mt-3 mb-0">
-                    <Link to="/zeneszkereso/ads" className="text-secondary">
+                    <Link to="/zeneszkereso/" className="text-secondary">
                         <i className="fas fa-chevron-left"></i>  vissza a hirdetésekhez
                     </Link>
                 </p>

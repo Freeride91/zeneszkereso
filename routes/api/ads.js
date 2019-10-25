@@ -8,6 +8,19 @@ const Ad = require('../../models/Ad');
 // ROUTE:   GET api/ads
 // DESCR:   GET ALL ADS
 // ACCES:   PUBLIC
+router.get('/user/:userId', async (req, res) => {
+    try {
+        const ads = await Ad.find({authorId: req.params.userId}).sort({ posted_date: -1 });
+        res.json(ads);
+    } catch (error) {
+        console.error(err.message);
+        res.status(500).json({msg: 'Szerver hiba :('});
+    }
+})
+
+// ROUTE:   GET api/ads/:userId
+// DESCR:   GET ADS OF USER
+// ACCES:   PUBLIC
 router.get('/', async (req, res) => {
     try {
         const ads = await Ad.find().sort({ posted_date: -1 });
@@ -16,7 +29,6 @@ router.get('/', async (req, res) => {
         console.error(err.message);
         res.status(500).json({msg: 'Szerver hiba :('});
     }
-
 })
 
 

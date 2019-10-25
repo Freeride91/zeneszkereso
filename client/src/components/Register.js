@@ -55,7 +55,7 @@ class Register extends Component {
     render() {
 
         if (this.props.isAuthenticated) {
-            return <Redirect to='/zeneszkereso/ads' />
+            return <Redirect to='/zeneszkereso/' />
         }
         return (
             <>
