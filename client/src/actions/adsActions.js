@@ -1,14 +1,21 @@
 import axios from 'axios';
 import {
-    NEW_AD,
+    ADD_AD,
     GET_ADS,
-    // GET_AD,
+    GET_AD,
+    EDIT_AD,
     DELETE_AD,
     AD_ERROR,
     link
 } from './types';
 
 import { setAlert } from '../actions/alertActions';
+
+export const editAd = () => async dispatch => {
+    dispatch({
+        type: EDIT_AD
+    })
+}
 
 // GET ALL ADS
 export const getAds = () => async dispatch => {
@@ -28,6 +35,25 @@ export const getAds = () => async dispatch => {
     }
 }
 
+//GET AD by ad_Id
+export const getAdById = (ad_Id) => async dispatch => {
+    try {
+        const res = await axios.get(link + `api/ads/${ad_Id}`);
+
+        dispatch({
+            type: GET_AD,
+            payload: res.data
+        });
+
+    } catch (err) {
+        dispatch({
+            type: AD_ERROR,
+            payload: err.response.data
+        });
+    }
+}
+
+//GET ADS BY --USER--
 export const getAdsByUser = (userId) => async dispatch => {
     try {
         const res = await axios.get(link + `api/ads/user/${userId}`);
@@ -52,11 +78,12 @@ export const newAd = (formData) => async dispatch => {
             'Content-Type': 'application/json'
         }
     };
+
     try {
         const res = await axios.post(link + 'api/ads', formData, config);
 
         dispatch({
-            type: NEW_AD,
+            type: ADD_AD,
             payload: res.data
         });
 
@@ -69,9 +96,18 @@ export const newAd = (formData) => async dispatch => {
 
 // DELETE AD
 export const deleteAd = (ad_Id) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    const token = localStorage.getItem('token');
+    if (token) { config.headers['x-auth-token'] = token; }
+
+
     try {
 
-        const res = await axios.delete(link + `api/ads/${ad_Id}`);
+        const res = await axios.delete(link + `api/ads/${ad_Id}`, config);
 
         dispatch({
             type: DELETE_AD,

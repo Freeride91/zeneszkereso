@@ -1,12 +1,25 @@
 const express = require('express');
 const router = express.Router();
-// const auth = require('../../middleware/auth');
+const auth = require('../../middleware/auth');
 
 //User Model
 const Ad = require('../../models/Ad');
 
 // ROUTE:   GET api/ads
 // DESCR:   GET ALL ADS
+// ACCES:   PUBLIC
+router.get('/', async (req, res) => {
+    try {
+        const ads = await Ad.find().sort({ posted_date: -1 });
+        res.json(ads);
+    } catch (error) {
+        console.error(err.message);
+        res.status(500).json({msg: 'Szerver hiba :('});
+    }
+})
+
+// ROUTE:   GET api/ads/user/:id
+// DESCR:   GET ADS BY USERID
 // ACCES:   PUBLIC
 router.get('/user/:userId', async (req, res) => {
     try {
@@ -18,13 +31,14 @@ router.get('/user/:userId', async (req, res) => {
     }
 })
 
-// ROUTE:   GET api/ads/:userId
-// DESCR:   GET ADS OF USER
+
+// ROUTE:   GET api/ads/:ad_Id
+// DESCR:   GET ONE AD
 // ACCES:   PUBLIC
-router.get('/', async (req, res) => {
+router.get('/:ad_Id', async (req, res) => {
     try {
-        const ads = await Ad.find().sort({ posted_date: -1 });
-        res.json(ads);
+        const ad = await Ad.findById(req.params.ad_Id)
+        res.json(ad);
     } catch (error) {
         console.error(err.message);
         res.status(500).json({msg: 'Szerver hiba :('});
@@ -61,8 +75,8 @@ router.post('/', async (req, res) => {
 
 // ROUTE:   DELETE api/ads/:id
 // DESCR:   Delete AD by ID
-// ACCES:   Private ( not yet )
-router.delete('/:id', async (req, res) => {
+// ACCES:   Private
+router.delete('/:id', auth, async (req, res) => {
     try {
         const ad = await Ad.findById(req.params.id);
 
@@ -70,10 +84,10 @@ router.delete('/:id', async (req, res) => {
             return res.status(404).json({ msg: 'Hirdetés nem található' });
         }
 
-        // Check user
-        // if (post.user.toString() !== req.user.id) {
-        //     return res.status(401).json({ msg: 'user not authorized' });
-        // }
+        // Check users right to delete
+        if (ad.authorId.toString() !== req.user._id) {
+            return res.status(401).json({ msg: 'Nincs jogosultságod a törlésre!' });
+        }
 
         await ad.remove();
 

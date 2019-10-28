@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import Spinner from './layout/Spinner';
 import CustomAlert from './layout/CustomAlert';
 import Ad from './Ad';
@@ -7,10 +7,10 @@ import Ad from './Ad';
 import { connect } from 'react-redux';
 import { getAdsByUser } from '../actions/adsActions';
 
-const Dashboard = ({ getAdsByUser, auth: { isLoading, user }, ads }) => {
+const Dashboard = ({history, getAdsByUser, auth: { isLoading, user }, ads }) => {
     useEffect(() => {
-        if (!isLoading) getAdsByUser(user._id);
-    }, [getAdsByUser, isLoading]);
+        if (user) getAdsByUser(user._id);
+    }, [getAdsByUser, user]);
 
     return isLoading ? <Spinner /> :
         <>
@@ -21,16 +21,18 @@ const Dashboard = ({ getAdsByUser, auth: { isLoading, user }, ads }) => {
 
             <h3 className="text-center">Hirdetéseid:</h3>
             {ads.loading ? (<Spinner />) :
-                ads.ads.length == 0 ? (<h4 className="text-center font-weight-light mt-4">Jelenleg nincs hirdetésed</h4>) :
-                ads.ads.map(ad => <Ad key={ad._id} ad={ad} /> )
+                ads.ads.length === 0 ? 
+                (<h4 className="text-center font-weight-light mt-4">Jelenleg nincs hirdetésed</h4>) 
+                :
+                ads.ads.map(ad => <Ad history={history} key={ad._id} ad={ad} /> )
             }
 
         </>
 }
 
-Dashboard.propTypes = {
+// Dashboard.propTypes = {
 
-}
+// }
 
 const mapStateToProps = state => ({
     auth: state.auth,

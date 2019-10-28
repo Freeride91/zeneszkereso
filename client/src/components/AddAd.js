@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
-import { newAd } from '../actions/adsActions';
+import { newAd, editAd } from '../actions/adsActions';
 import { Link } from 'react-router-dom';
 import SuggestInput from './SuggestInput';
 
+import {setAlert} from '../actions/alertActions';
+
 import { telepulesek } from '../resources/telepulesek';
 
-const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
-    useEffect(() => {
-        if (isAuthenticated) {
-            setFormData({
-                ...formData,
-                author: user.name,
-                authorId: user._id,
-                persOrBand: 'person'
-            })
-        }
-        // eslint-disable-next-line
-    }, []);
-
+const AddAd = ({ 
+    setAlert,
+    ads: { ad, editing }, 
+    auth: { user, isAuthenticated }, history, newAd }) => {
     const [formData, setFormData] = useState({
         authorId: '',
         author: '',
@@ -29,28 +22,56 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
         description: ''
     });
 
+    useEffect(() => {
+        if (isAuthenticated) {
+            setFormData({
+                ...formData,
+                authorId: user._id,
+                author: user.name,
+                persOrBand: 'person'
+            })
+        }
+        if (editing && ad !== null) {
+            setFormData({
+                title: ad.title,
+                persOrBand: ad.pers_or_band,
+                instrument: ad.instrument,
+                place: ad.place,
+                description: ad.description
+            })
+        }
+        // eslint-disable-next-line
+    }, [ad]);
+
+
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onPlaceSuggestChange = (newValue) => {
-         setFormData({
-             ...formData,
-             place: newValue
-         })
+        setFormData({
+            ...formData,
+            place: newValue
+        })
     }
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        if (editing) {
+            // editAd(ad._id, formData);
+            setAlert({msg: 'hamarosan! :))'}, 'info');
+            history.push('/zeneszkereso/');
+        } else {
+            newAd(formData);
+            history.push('/zeneszkereso/');
+        }
 
-        newAd(formData);
-
-        history.push('/zeneszkereso/');
     }
 
     return (
         <>
             <div className="newAdBox">
-                <h2 className="red text-center">Új hirdetés</h2>
-                {/* <p className="lead"><i className="fas fa-user"></i> Hozz létre egy új fiókot </p> */}
+
+                <h2 className="red text-center">{!editing ? 'Új hirdetés' : 'Hirdetés módosítása'}</h2>
+
 
                 <form className="form newAdForm" action="#" onSubmit={e => onSubmit(e)} >
                     <div className="form-group">
@@ -101,14 +122,10 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
                     <div className="form-group">
                         <div className="divideFlexInput">
                             <label htmlFor="place" className="mt-2"><i className="fas fa-street-view"></i> &nbsp;Helyszín:</label>
-                            <SuggestInput suggestValues={telepulesek} onSuggestValueChange={onPlaceSuggestChange}/>
-                            {/* <input
-                                value={formData.place}
-                                onChange={e => onChange(e)}
-                                type="text"
-                                className="form-control"
-                                name="place"
-                                placeholder="pl: Budapest környéke" /> */}
+                            <SuggestInput
+                                suggestValues={telepulesek}
+                                onSuggestValueChange={onPlaceSuggestChange}
+                                value={formData.place} />
                         </div>
                     </div>
                     <div className="form-group">
@@ -121,7 +138,9 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
                             name="description"
                             required> </textarea>
                     </div>
-                    <input type="submit" className="form-control btn btn-red" value="Hirdetést felad" />
+                    {!editing ? <input type="submit" className="form-control btn btn-red" value="Hirdetést felad" />
+                        : <input type="submit" className="form-control btn btn-orange" value="Hirdetést módosít" />
+                    }
                 </form>
                 <p className="mt-3 mb-0">
                     <Link to="/zeneszkereso/" className="text-secondary">
@@ -134,7 +153,8 @@ const NewAd = ({ auth: { user, isAuthenticated }, history, newAd }) => {
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    ads: state.ads
 })
 
-export default connect(mapStateToProps, { newAd })(NewAd);
+export default connect(mapStateToProps, { newAd, setAlert })(AddAd);

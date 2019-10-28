@@ -6,7 +6,7 @@ import CustomAlert from './layout/CustomAlert';
 import { Row, Col } from 'reactstrap';
 
 
-export default function Landing() {
+export default function Landing({history}) {
     return (
         <>
             <h2 className="my-4 text-center focim">Hirdetések</h2>
@@ -16,7 +16,7 @@ export default function Landing() {
                     <Filter />
                 </Col>
                 <Col md="9" className="hirdetesekContainer">
-                    <Ads />
+                    <Ads history={history} />
                 </Col>
 
             </Row>

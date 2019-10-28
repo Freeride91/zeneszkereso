@@ -5,19 +5,29 @@ import { connect } from 'react-redux';
 import { getAds } from '../actions/adsActions';
 import Ad from './Ad';
 
-const Ads = ({getAds, ads: {ads, loading} }) => {
+const Ads = ({ history, getAds, ads: { ads, filteredAds, filtering, loading } }) => {
     useEffect(() => {
         getAds();
     }, [getAds]);
 
+    let renderedAds;
+    if (loading) {
+        renderedAds = <Spinner />
+    } else if (filtering) {
+        renderedAds = (filteredAds.map(ad => <Ad
+            key={ad._id}
+            ad={ad} />)
+        )
+    } else {
+        renderedAds = (ads.map(ad => <Ad
+            history={history}
+            key={ad._id}
+            ad={ad} />)
+        )
+    }
 
     return (
-        <>
-            {loading ? (<Spinner />) : ads.map(ad => <Ad
-                key={ad._id}
-                ad={ad} />
-            )}
-        </>
+        renderedAds
     )
 }
 

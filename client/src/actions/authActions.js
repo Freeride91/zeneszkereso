@@ -25,7 +25,7 @@ export const loadUser = () => (dispatch, getState) => {
       //res.data = user(object) :)
     }))
     .catch(err => {
-      // dispatch(setAlert(err.response.data, 'danger'));
+      // dispatch(setAlert({msg: err.response.data}, 'danger'));
       dispatch({ type: AUTH_ERROR });
     })
 }
@@ -62,7 +62,6 @@ export const register = ({ name, email, password }) => dispatch => {
 
 //LOGIN USER
 export const login = ({ email, password }) => async dispatch => {
-
   //headers
   const config = {
     headers: {

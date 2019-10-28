@@ -40,8 +40,10 @@ class SuggestInput extends Component {
     this.setState({
       value: newValue
     });
+    //own line
     this.props.onSuggestValueChange(newValue);
   };
+
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
@@ -60,7 +62,7 @@ class SuggestInput extends Component {
     const { value, suggestions } = this.state;
     const inputProps = {
       placeholder: "pl.: Budapest",
-      value,
+      value: this.props.value || '',
       onChange: this.onChange,
       required: "true"
     };

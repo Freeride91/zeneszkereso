@@ -46,6 +46,22 @@ body {
   outline: none;
 }
 
+.btn-orange {
+  color: white;
+  background: #e6a51a;
+}
+
+.btn-orange:hover {
+  color: white;
+  background: #ebb748;
+}
+
+.btn-orange:focus, .btn-orange:active {
+  color: white;
+  background: #e6a51a;
+  outline: none;
+}
+
 .navbar-dark .navbar-nav .nav-link {
   color: lightgray;
 }
@@ -176,12 +192,21 @@ body {
 }
 
 .hirdetes .btn-adDelete {
-  width: 100%;
+  width: 49%;
   padding: 5px 10px;
   font-weight: bold;
   color: white;
   background-color: #d63939;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+}
+
+.hirdetes .btn-adEdit {
+  width: 49%;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #e6a51a;
+  font-size: 0.8rem;
 }
 
 .footer {

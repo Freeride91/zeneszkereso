@@ -5,6 +5,7 @@ body {
 }
 
 $purpule: #ca28cf;
+$orange: #e6a51a;
 $red: #b40000;
 $darker_red: #880000;
 $text-secondary: #616A72;
@@ -48,6 +49,22 @@ $text-secondary: #616A72;
     &:active {
         color: white;
         background: $red;
+        outline: none;
+    }
+}
+.btn-orange {
+    color: white;
+    background: $orange;
+
+    &:hover {
+        color: white;
+        background: lighten($orange, 10);
+    }
+
+    &:focus,
+    &:active {
+        color: white;
+        background: $orange;
         outline: none;
     }
 }
@@ -187,12 +204,20 @@ $text-secondary: #616A72;
     }
 
     .btn-adDelete {
-        width: 100%;
+        width: 49%;
         padding: 5px 10px;
         font-weight: bold;
         color: white;
         background-color: #d63939;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+    }
+    .btn-adEdit {
+        width: 49%;
+        padding: 5px 10px;
+        font-weight: bold;
+        color: white;
+        background-color: #e6a51a;
+        font-size: 0.8rem;
     }
 }
 

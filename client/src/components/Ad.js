@@ -3,9 +3,23 @@ import React from 'react';
 import 'moment/locale/hu';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { deleteAd } from '../actions/adsActions';
+import {editAd, deleteAd, getAdById } from '../actions/adsActions';
 
-const Ad = ({ auth: {user, isLoading, isAuthenticated}, deleteAd, ad: { _id, author, authorId, title, pers_or_band, instrument, place, description, posted_date } }) => {
+const Ad = ({
+    history,
+    auth: { user, isLoading, isAuthenticated },
+    ad: { _id, author, authorId, title, pers_or_band, instrument, place, description, posted_date },
+    deleteAd,
+    getAdById,
+    editAd
+}) => {
+
+    const editThisAd = () => {
+        getAdById(_id);
+        editAd();
+        history.push('/zeneszkereso/add_ad');
+    }
+
     return (
         <div className='hirdetes'>
             <div className="row mb-2">
@@ -34,15 +48,19 @@ const Ad = ({ auth: {user, isLoading, isAuthenticated}, deleteAd, ad: { _id, aut
                                 </button>
                             </div> */}
                         </div>
-                        {!isLoading && isAuthenticated && user && authorId === user._id ? (
+                        {/*  */}
+                        {!isLoading && user && user._id === authorId ? (
                             <div className="pr-3 mt-1">
+                                <button className='btn btn-adEdit mr-1' onClick={e => { editThisAd(e) }}>
+                                    szerkesztés &nbsp; <i className="far fa-edit"></i>
+                                </button>
                                 <button className='btn btn-adDelete' onClick={e =>
-                                    deleteAd(_id)}> hirdetés törlése &nbsp; <i className="far fa-trash-alt"></i>
+                                    deleteAd(_id)}>törlés &nbsp; <i className="far fa-trash-alt"></i>
                                 </button>
                             </div>
                         ) : (
-                            null
-                        )}
+                                null
+                            )}
 
                     </div>
                 </div>
@@ -58,4 +76,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, { deleteAd })(Ad);
+export default connect(mapStateToProps, { deleteAd, getAdById, editAd })(Ad);
