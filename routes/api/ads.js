@@ -69,9 +69,30 @@ router.post('/', async (req, res) => {
         console.error(err.message);
         res.status(500).json({msg: 'Szerver hiba :('});
     }
-
 })
 
+// ROUTE:   POST api/ads/:ad_Id
+// DESCR:   MODIFY AN AD
+// ACCES:   PRIVATE (not yet :)
+router.post('/:ad_Id', async (req, res) => {
+    const { title, persOrBand, instrument, place, description } = req.body;
+
+    try {
+        const ad = await Ad.findById(req.params.ad_Id);
+
+        ad.title = title;
+        ad.pers_or_band = persOrBand;
+        ad.instrument = instrument;
+        ad.place = place;
+        ad.description = description;
+
+        const adResponse = await ad.save();
+        res.json(adResponse);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({msg: 'Szerver hiba :('});
+    }
+})
 
 // ROUTE:   DELETE api/ads/:id
 // DESCR:   Delete AD by ID

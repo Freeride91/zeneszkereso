@@ -91,21 +91,29 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.szuresFocim {
-  font-family: 'Montserrat', sans-serif;
-}
-
 .controlMaxWidth {
   max-width: 1400px;
 }
 
-.szuresForm {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  margin: 0;
-  padding: 1rem;
+.szuresFocim {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.szuresContainer {
+  border: 1px solid #e9e9e9;
+  padding-top: 0.5rem;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.szuresContainer label {
+  margin-bottom: 2px;
+}
+
+.szuresInner .form-group {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .hirdetesekContainer {
@@ -115,25 +123,23 @@ body {
 .hirdetes {
   background-color: #fff;
   border: 1px solid #dedede;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
   margin: 0 0 20px;
   padding: 1.5rem 2rem 1rem;
 }
 
 .hirdetes .iconUser {
-  border: 2px solid #455368;
-  background: #455368;
+  background: #808080;
   color: white;
   border-radius: 50%;
-  padding: 8px 15px;
+  padding: 9px 16px;
   font-size: 2.2rem;
   text-align: center;
 }
 
 .hirdetes .iconUsers {
-  border: 2px solid #455368;
-  background: #455368;
+  background: #b895b8;
   color: white;
   border-radius: 50%;
   padding: 10px;
@@ -142,14 +148,18 @@ body {
 }
 
 .hirdetes .author {
-  color: #880000;
+  color: #b40000;
   font-size: 0.9rem;
+}
+
+.hirdetes .author i {
+  font-size: 0.8rem;
 }
 
 .hirdetes h5 {
   font-family: 'Roboto Condensed', sans-serif;
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .hirdetes p {
@@ -185,7 +195,7 @@ body {
 }
 
 .hirdetes .btn-adMore {
-  padding: 5px 10px;
+  padding: 4px 6px 4px 8px;
   border: 1px solid #ddd;
   color: #616A72;
   font-size: 0.9rem;

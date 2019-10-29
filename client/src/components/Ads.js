@@ -15,6 +15,7 @@ const Ads = ({ history, getAds, ads: { ads, filteredAds, filtering, loading } })
         renderedAds = <Spinner />
     } else if (filtering) {
         renderedAds = (filteredAds.map(ad => <Ad
+            history={history}
             key={ad._id}
             ad={ad} />)
         )

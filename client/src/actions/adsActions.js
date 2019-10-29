@@ -3,6 +3,7 @@ import {
     ADD_AD,
     GET_ADS,
     GET_AD,
+    SET_EDIT_AD,
     EDIT_AD,
     DELETE_AD,
     AD_ERROR,
@@ -11,10 +12,35 @@ import {
 
 import { setAlert } from '../actions/alertActions';
 
-export const editAd = () => async dispatch => {
+//SET EDITING (what to render, what to show)
+export const setEditAd = (isEditing) => async dispatch => {
     dispatch({
-        type: EDIT_AD
+        type: SET_EDIT_AD,
+        payload: isEditing
     })
+}
+
+//EDIT ONE AD
+export const editAd = (ad_Id, formData) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    try {
+        const res = await axios.post(link + `api/ads/${ad_Id}`, formData, config);
+
+        dispatch({
+            type: EDIT_AD,
+            payload: res.data
+        })
+
+    } catch (err) {
+        dispatch({
+            type: AD_ERROR,
+            payload: err.response.data
+        });
+    }
 }
 
 // GET ALL ADS
@@ -57,7 +83,7 @@ export const getAdById = (ad_Id) => async dispatch => {
 export const getAdsByUser = (userId) => async dispatch => {
     try {
         const res = await axios.get(link + `api/ads/user/${userId}`);
-        
+
         dispatch({
             type: GET_ADS,
             payload: res.data

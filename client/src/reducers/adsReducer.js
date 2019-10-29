@@ -1,6 +1,7 @@
 import {
     GET_ADS,
     GET_AD,
+    SET_EDIT_AD,
     EDIT_AD,
     ADD_AD,
     DELETE_AD,
@@ -37,10 +38,18 @@ export default function (state = initialState, action) {
                 ad: payload,
                 loading: false
             }
-        case EDIT_AD:
+        case SET_EDIT_AD:
             return {
                 ...state,
-                editing: true
+                editing: payload
+            }
+        case EDIT_AD:
+            const filteredAds = state.ads.filter(ad => ad._id !== payload._id);
+            return {
+                ...state,
+                ads: [payload, ...filteredAds],
+                loading: false,
+                editing: false
             }
         case ADD_AD:
             return {
@@ -69,7 +78,6 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 filteredAds: state.ads.filter(ad => {
-                    
                     if (
                         (ad.instrument.toLowerCase().includes(payload.instrument.toLowerCase())) &&
                         (ad.place.toLowerCase().includes(payload.place.toLowerCase()))
@@ -84,8 +92,8 @@ export default function (state = initialState, action) {
                                 return ad;
                             }
                         }
-                        
                     }
+                    return false;
                 }),
                 filtering: true,
                 loading: false

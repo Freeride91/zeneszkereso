@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
-import { newAd, editAd } from '../actions/adsActions';
+import { newAd, setEditAd, editAd } from '../actions/adsActions';
 import { Link } from 'react-router-dom';
 import SuggestInput from './SuggestInput';
 
-import {setAlert} from '../actions/alertActions';
-
+import { setAlert } from '../actions/alertActions';
 import { telepulesek } from '../resources/telepulesek';
 
-const AddAd = ({ 
+const AddAd = ({
     setAlert,
-    ads: { ad, editing }, 
-    auth: { user, isAuthenticated }, history, newAd }) => {
+    ads: { ad, editing },
+    auth: { user, isAuthenticated },
+    history,
+    newAd,
+    setEditAd,
+    editAd
+}) => {
     const [formData, setFormData] = useState({
         authorId: '',
         author: '',
@@ -43,7 +47,6 @@ const AddAd = ({
         // eslint-disable-next-line
     }, [ad]);
 
-
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onPlaceSuggestChange = (newValue) => {
@@ -56,8 +59,7 @@ const AddAd = ({
     const onSubmit = async (e) => {
         e.preventDefault();
         if (editing) {
-            // editAd(ad._id, formData);
-            setAlert({msg: 'hamarosan! :))'}, 'info');
+            editAd(ad._id, formData);
             history.push('/zeneszkereso/');
         } else {
             newAd(formData);
@@ -71,7 +73,6 @@ const AddAd = ({
             <div className="newAdBox">
 
                 <h2 className="red text-center">{!editing ? 'Új hirdetés' : 'Hirdetés módosítása'}</h2>
-
 
                 <form className="form newAdForm" action="#" onSubmit={e => onSubmit(e)} >
                     <div className="form-group">
@@ -157,4 +158,4 @@ const mapStateToProps = state => ({
     ads: state.ads
 })
 
-export default connect(mapStateToProps, { newAd, setAlert })(AddAd);
+export default connect(mapStateToProps, { newAd, setEditAd, editAd, setAlert })(AddAd);
