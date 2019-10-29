@@ -12,6 +12,14 @@ body {
   color: #8b1c8f;
 }
 
+.red {
+  color: #b40000;
+}
+
+.red-darker {
+  color: #680000;
+}
+
 .btn-purpule {
   color: white;
   background: #ca28cf;
@@ -20,14 +28,6 @@ body {
 .btn-purpule:hover {
   color: white;
   background: #d84ddd;
-}
-
-.red {
-  color: #b40000;
-}
-
-.red-darker {
-  color: #680000;
 }
 
 .btn-red {
@@ -207,6 +207,10 @@ body {
   color: white;
   background-color: #e6a51a;
   font-size: 0.8rem;
+}
+
+.hirdetes .description {
+  color: #272727;
 }
 
 .footer {

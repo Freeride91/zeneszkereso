@@ -65,7 +65,7 @@ const Ad = ({
                     </div>
                 </div>
                 <div className="col-md-6 d-flex">
-                    <p className="text-secondary text-justify align-self-center">{description} </p>
+                    <p className="text-justify align-self-center description"> {description} </p>
                 </div>
             </div>
         </div>

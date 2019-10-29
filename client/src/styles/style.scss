@@ -9,6 +9,7 @@ $orange: #e6a51a;
 $red: #b40000;
 $darker_red: #880000;
 $text-secondary: #616A72;
+$almostblack: #272727;
 
 .purpule {
     color: $purpule;
@@ -16,6 +17,14 @@ $text-secondary: #616A72;
 
 .purpule-darker {
     color: darken($purpule, 15);
+}
+
+.red {
+    color: $red;
+}
+
+.red-darker {
+    color: darken($red, 15);
 }
 
 .btn-purpule {
@@ -26,14 +35,6 @@ $text-secondary: #616A72;
         color: white;
         background: lighten($purpule, 10);
     }
-}
-
-.red {
-    color: $red;
-}
-
-.red-darker {
-    color: darken($red, 15);
 }
 
 .btn-red {
@@ -52,6 +53,7 @@ $text-secondary: #616A72;
         outline: none;
     }
 }
+
 .btn-orange {
     color: white;
     background: $orange;
@@ -95,9 +97,6 @@ $text-secondary: #616A72;
     }
 }
 
-
-// .navbar-brand i {
-// }
 
 .focim {
     font-family: 'Montserrat', sans-serif;
@@ -218,6 +217,9 @@ $text-secondary: #616A72;
         color: white;
         background-color: #e6a51a;
         font-size: 0.8rem;
+    }
+    .description {
+        color: $almostblack;
     }
 }
 
