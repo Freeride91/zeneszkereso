@@ -50,7 +50,7 @@ router.get('/:ad_Id', async (req, res) => {
 // DESCR:   CREATE NEW AD
 // ACCES:   PRIVATE (not yet :)
 router.post('/', async (req, res) => {
-    const { author, authorId, title, persOrBand, instrument, place, description } = req.body;
+    const { author, authorId, title, persOrBand, instrument, place, description, email, phoneNum } = req.body;
 
     try {
         const newAd = new Ad({
@@ -60,7 +60,9 @@ router.post('/', async (req, res) => {
             pers_or_band: persOrBand,
             instrument,
             place,
-            description
+            description,
+            email,
+            phoneNum
         });
 
         const ad = await newAd.save();
@@ -75,7 +77,7 @@ router.post('/', async (req, res) => {
 // DESCR:   MODIFY AN AD
 // ACCES:   PRIVATE (not yet :)
 router.post('/:ad_Id', async (req, res) => {
-    const { title, persOrBand, instrument, place, description } = req.body;
+    const { title, persOrBand, instrument, place, description, email, phoneNum } = req.body;
 
     try {
         const ad = await Ad.findById(req.params.ad_Id);
@@ -85,6 +87,9 @@ router.post('/:ad_Id', async (req, res) => {
         ad.instrument = instrument;
         ad.place = place;
         ad.description = description;
+
+        ad.email = email ? email : null;
+        ad.phoneNum = phoneNum ? phoneNum : null;
 
         const adResponse = await ad.save();
         res.json(adResponse);

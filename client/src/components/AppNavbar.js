@@ -43,7 +43,7 @@ class Navbar extends Component {
                                             <Link to="/zeneszkereso/register" className="nav-link mr-4"> Regisztráció </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="/zeneszkereso/login" className="nav-link mr-4"> Bejelentkezés </Link>
+                                            <Link to="/zeneszkereso/login" className="nav-link"> Bejelentkezés </Link>
                                         </li>
                                     </>)
                                     :

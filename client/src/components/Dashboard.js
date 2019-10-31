@@ -7,26 +7,27 @@ import Ad from './Ad';
 import { connect } from 'react-redux';
 import { getAdsByUser } from '../actions/adsActions';
 
-const Dashboard = ({history, getAdsByUser, auth: { isLoading, user }, ads }) => {
+const Dashboard = ({ history, getAdsByUser, auth: { isLoading, user }, ads }) => {
     useEffect(() => {
         if (user) getAdsByUser(user._id);
     }, [getAdsByUser, user]);
 
     return isLoading ? <Spinner /> :
         <>
-            <h2 className="mt-4">Üdv a profilodon, <span className="purpule">{user.name}</span>!</h2>
+            <h2 className="mt-4">Üdv a zenészkeresőn, <span className="purpule">{user.name}</span>!</h2>
             <hr />
             <br />
             <CustomAlert />
 
             <h3 className="text-center">Hirdetéseid:</h3>
-            {ads.loading ? (<Spinner />) :
-                ads.ads.length === 0 ? 
-                (<h4 className="text-center font-weight-light mt-4">Jelenleg nincs hirdetésed</h4>) 
-                :
-                ads.ads.map(ad => <Ad history={history} key={ad._id} ad={ad} /> )
-            }
-
+            <div className="hirdetesekContainer">
+                {ads.loading ? (<Spinner />) :
+                    ads.ads.length === 0 ?
+                        (<h4 className="text-center font-weight-light mt-4">Jelenleg nincs hirdetésed</h4>)
+                        :
+                        ads.ads.map(ad => <Ad history={history} key={ad._id} ad={ad} />)
+                }
+            </div>
         </>
 }
 

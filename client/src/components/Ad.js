@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { setEditAd, deleteAd, getAdById } from '../actions/adsActions';
 import { useDispatch } from 'react-redux';
-import {setAlert} from '../actions/alertActions';
+import { setAlert } from '../actions/alertActions';
 
 const Ad = ({
     history,
@@ -15,6 +15,7 @@ const Ad = ({
     getAdById,
     setEditAd
 }) => {
+    const dispatch = useDispatch();
 
     const editThisAd = () => {
         getAdById(_id);
@@ -22,20 +23,22 @@ const Ad = ({
         history.push('/zeneszkereso/add_ad');
     }
 
-    const dispatch = useDispatch();
-
     const moreInfo = () => {
-        dispatch(setAlert({ msg: 'Fejlesztés alatt!' }, 'secondary'));
+        // dispatch(setAlert({ msg: 'Fejlesztés alatt!' }, 'secondary'));
+        getAdById(_id);
+        history.push('/zeneszkereso/ad_details');
     }
 
     return (
         <div className='hirdetes'>
             <div className="row mb-2">
+
                 <div className="col-md-1 px-1 d-flex align-self-center justify-content-center">
                     {pers_or_band === 'person' ?
                         (<i className="fas fa-user iconUser"></i>) :
                         (<i className="fas fa-users iconUsers"></i>)}
                 </div>
+
                 <div className="col-md-5 border-right pr-0 d-flex">
                     <div className="align-self-center w-100">
 
@@ -56,19 +59,19 @@ const Ad = ({
                                 </button>
                             </div>
                         </div>
-                        {/*  */}
-                        {!isLoading && user && user._id === authorId ? (
-                            <div className="pr-3 mt-1">
-                                <button className='btn btn-adEdit mr-1' onClick={e => { editThisAd(e) }}>
-                                    szerkesztés &nbsp; <i className="far fa-edit"></i>
-                                </button>
-                                <button className='btn btn-adDelete' onClick={e =>
-                                    deleteAd(_id)}>törlés &nbsp; <i className="far fa-trash-alt"></i>
-                                </button>
-                            </div>
-                        ) : (
-                                null
-                            )}
+
+                        {!isLoading && user && user._id === authorId ?
+                            (
+                                <div className="pr-3 mt-1">
+                                    <button className='btn btn-adEdit mr-1' onClick={e => { editThisAd(e) }}>
+                                        szerkesztés &nbsp; <i className="far fa-edit"></i>
+                                    </button>
+                                    <button className='btn btn-adDelete' onClick={e =>
+                                        deleteAd(_id)}>törlés &nbsp; <i className="far fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            ) : (null)
+                        }
 
                     </div>
                 </div>
@@ -92,4 +95,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, { deleteAd, getAdById, setEditAd})(Ad);
+export default connect(mapStateToProps, { deleteAd, getAdById, setEditAd })(Ad);

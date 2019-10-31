@@ -47,11 +47,10 @@ const Filter = ({ dispatch }) => {
 
     return (
         <>
-            <div className="szuresContainer d-flex justify-content-center pb-2 mb-3 mx-auto">
-
-                <div className="szuresInner d-flex align-items-center">
-                
-                    <h4 className="szuresFocim mr-5 mb-0 mt-2">Szűrés:</h4>
+            <div className="szuresContainer d-flex justify-content-center pb-2 mb-3">
+                <div className="szuresInner d-flex align-items-center mr-4">
+                    
+                    <h4 className="szuresFocim mr-5 mb-0 mt-4 text-secondary">Keres:</h4>
                     <div className="form-group mr-3 mb-0">
                         <label>Hangszer:</label>
                         <input type="text" className="form-control"

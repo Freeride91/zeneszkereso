@@ -9,12 +9,12 @@ import CustomAlert from './layout/CustomAlert';
 export default function Landing({ history }) {
     return (
         <>
-            <h2 className="mt-4 mb-3 text-center focim">Hirdetések</h2>
 
+            <h2 className="pt-3 pb-2 focim bg-light text-center">Hirdetések</h2>
             <CustomAlert />
+            <Filter />
 
             <div className="hirdetesekContainer">
-                <Filter />
                 <Ads history={history} />
             </div>
 

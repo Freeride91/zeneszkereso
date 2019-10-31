@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CustomAlert from './layout/CustomAlert';
+import Spinner from './layout/Spinner';
 
 //redux
 import { connect } from 'react-redux';
@@ -29,14 +30,11 @@ class Login extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-
         const { email, password } = this.state;
-
         const user = {
             email: email,
             password: password
         }
-
         //attempt to login
         this.props.login(user);
     }
@@ -46,7 +44,7 @@ class Login extends Component {
         if (this.props.isAuthenticated) {
             return <Redirect to='/zeneszkereso/' />
         }
-        return (
+        return this.props.isLoading ? <Spinner /> :
             <>
                 <div className="container loginSiteContainer">
 
@@ -56,7 +54,7 @@ class Login extends Component {
                         <h1 className="purpule-darker">Bejelentkezés</h1>
                         <p className="lead"><i className="fas fa-user"></i> Jelentkezz be a fiókodba</p>
 
-                        <form onSubmit={e => this.onSubmit(e)} className="form" action="#" autoComplete="on">
+                        <form onSubmit={e => this.onSubmit(e)} className="form" action="#">
                             <div className="form-group">
                                 <input
                                     onChange={this.onChange}
@@ -84,19 +82,15 @@ class Login extends Component {
                     </div>
                     
                 </div>
-
-
-
             </>
-        )
     }
 }
 
 
 const mapStateToProps = state => ({
-    //just one boolean field from authReducer
+    //just two boolean fields from authReducer
     isAuthenticated: state.auth.isAuthenticated,
-
+    isLoading: state.auth.isLoading
 })
 
 export default connect(mapStateToProps, { login })(Login);

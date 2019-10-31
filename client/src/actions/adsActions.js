@@ -35,6 +35,8 @@ export const editAd = (ad_Id, formData) => async dispatch => {
             payload: res.data
         })
 
+        dispatch(setAlert({msg: 'Módosítás sikeres!'}, 'success'));
+
     } catch (err) {
         dispatch({
             type: AD_ERROR,

@@ -31,6 +31,12 @@ const AdSchema = new Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String
+    },
+    phoneNum: {
+        type: String
+    },
     posted_date: {
         type: Date,
         default: Date.now

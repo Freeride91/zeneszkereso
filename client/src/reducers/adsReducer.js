@@ -44,10 +44,16 @@ export default function (state = initialState, action) {
                 editing: payload
             }
         case EDIT_AD:
-            const filteredAds = state.ads.filter(ad => ad._id !== payload._id);
+            const newAds = state.ads.map(ad => {
+                if (ad._id == payload._id) {
+                    return payload;
+                } else {
+                    return ad;
+                }
+            });
             return {
                 ...state,
-                ads: [payload, ...filteredAds],
+                ads: newAds,
                 loading: false,
                 editing: false
             }

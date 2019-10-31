@@ -8,7 +8,7 @@ import Ad from './Ad';
 const Ads = ({ history, getAds, ads: { ads, filteredAds, filtering, loading } }) => {
     useEffect(() => {
         getAds();
-    }, [getAds]);
+    }, []);
 
     let renderedAds;
     if (loading) {

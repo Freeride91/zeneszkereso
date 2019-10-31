@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Spinner from './layout/Spinner';
 
 //redux
 import { connect } from 'react-redux';
@@ -57,7 +58,7 @@ class Register extends Component {
         if (this.props.isAuthenticated) {
             return <Redirect to='/zeneszkereso/' />
         }
-        return (
+        return this.props.isLoading ? <Spinner /> :
             <>
                 <div className="container loginSiteContainer">
 
@@ -67,18 +68,18 @@ class Register extends Component {
                         <h1 className="red">Regisztráció</h1>
                         <p className="lead"><i className="fas fa-user"></i> Hozz létre egy új fiókot </p>
 
-                        <form className="form" action="#" onSubmit={e => this.onSubmit(e)}>
+                        <form className="form" action="#" onSubmit={e => this.onSubmit(e)} autoComplete="false">
                             <div className="form-group">
-                                <input onChange={this.onChange} type="text" className="form-control" placeholder="Felhasználónév" name="name" />
+                                <input onChange={this.onChange} type="email" className="form-control" placeholder="E-mail cím" name="email" autoComplete="false"/>
                             </div>
                             <div className="form-group">
-                                <input onChange={this.onChange} type="email" className="form-control" placeholder="E-mail cím" name="email" />
+                                <input onChange={this.onChange} type="text" className="form-control" placeholder="Felhasználónév" name="name" autoComplete="false" />
                             </div>
                             <div className="form-group">
-                                <input onChange={this.onChange} type="password" className="form-control" placeholder="Jelszó" name="password" minLength="6" />
+                                <input onChange={this.onChange} type="password" className="form-control" placeholder="Jelszó" name="password" minLength="6" autoComplete="false"/>
                             </div>
                             <div className="form-group">
-                                <input onChange={this.onChange} type="password" className="form-control" placeholder="Jelszó megerősítése" name="password2" minLength="6" />
+                                <input onChange={this.onChange} type="password" className="form-control" placeholder="Jelszó megerősítése" name="password2" minLength="6" autoComplete="false"/>
                             </div>
                             <input type="submit" className="form-control btn btn-red" value="Regisztráció" />
                         </form>
@@ -89,14 +90,14 @@ class Register extends Component {
 
                 </div>
             </>
-        )
     }
 }
 
 
 const mapStateToProps = state => ({
-    //just one boolean field from authReducer
-    isAuthenticated: state.auth.isAuthenticated
+    //just two boolean fields from authReducer
+    isAuthenticated: state.auth.isAuthenticated,
+    isLoading: state.auth.isLoading
 })
 
 export default connect(mapStateToProps, { register, setAlert })(Register);

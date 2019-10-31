@@ -19,6 +19,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Register from './components/Register';
 import AddAd from './components/AddAd';
+import AdDetails from './components/AdDetails';
 import Footer from './components/Footer';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             <Route exact path="/zeneszkereso/login" component={Login} />
             <Route exact path="/zeneszkereso/dashboard" component={Dashboard} />
             <Route exact path="/zeneszkereso/register" component={Register} />
+            <Route exact path="/zeneszkereso/ad_details" component={AdDetails} />
             <PrivateRoute exact path="/zeneszkereso/add_ad" component={AddAd} />
             <Route path="/zeneszkereso/" component={Landing} />
             <Route render={() => <h1>404 Error - A lap nem található</h1>} />
