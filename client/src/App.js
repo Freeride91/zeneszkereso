@@ -22,6 +22,13 @@ import AddAd from './components/AddAd';
 import AdDetails from './components/AdDetails';
 import Footer from './components/Footer';
 
+
+import setAuthToken from './utils/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -34,7 +41,7 @@ function App() {
 
         <AppNavbar />
 
-        <section className="container-fluid controlMaxWidth">
+        <section className="container-fluid">
           <Switch>
             <Route exact path="/zeneszkereso/login" component={Login} />
             <Route exact path="/zeneszkereso/dashboard" component={Dashboard} />

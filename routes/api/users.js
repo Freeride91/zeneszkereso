@@ -3,6 +3,7 @@ const router = express.Router();
 const config = require('config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { check, validationResult } = require('express-validator');
 
 //User Model
 const User = require('../../models/User');
@@ -10,18 +11,29 @@ const User = require('../../models/User');
 // ROUTE:   POST api/users
 // DESCR:   register new user
 // ACCES:   public
-router.post('/', async (req, res) => {
+router.post('/', [
+    check('name', 'Név megadása kötelező!').not().isEmpty(),
+    check('email', 'Adj meg érvényes email-t!').isEmail(),
+    check('password', 'Adj meg min. 6, max. 20 karakter hosszú jelszót!').isLength({ min: 6, max: 20 })
+], async (req, res) => {
     const { name, email, password } = req.body;
 
     // validation
-    if (!name || !email || !password) {
-        return res.status(400).json({ msg: 'Kérlek töltsd ki az összes mezőt!' })
+    // if (!name || !email || !password) {
+    //     return res.status(400).json({ msg: 'Kérlek töltsd ki az összes mezőt!' })
+    // }
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        })
     }
 
     try {
         let user = await User.findOne({ email: email });
 
-        if (user) return res.status(400).json({ msg: 'Már létezik ilyen felhasználó!' });
+        if (user) return res.status(400).json({ errors: [{msg: 'Már létezik felhasználó ezzel az email címmel!' }] });
 
         const newUser = new User({
             name,
@@ -37,8 +49,8 @@ router.post('/', async (req, res) => {
         await newUser.save();
 
         //return token
-        jwt.sign({_id: newUser._id}, config.get('jwtSecret'), {expiresIn: 36000}, (err, token) => {
-            if(err) throw err;
+        jwt.sign({ _id: newUser._id }, config.get('jwtSecret'), { expiresIn: 36000 }, (err, token) => {
+            if (err) throw err;
             res.json({
                 token: token,
                 user: {

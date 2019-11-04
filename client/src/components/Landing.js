@@ -10,12 +10,19 @@ export default function Landing({ history }) {
     return (
         <>
 
-            <h2 className="pt-3 pb-2 focim bg-light text-center">Hirdetések</h2>
+            <h2 className="pt-3 pb-2 focim border-bottom text-center">Hirdetések</h2>
             <CustomAlert />
+
+
             <Filter />
 
             <div className="hirdetesekContainer">
-                <Ads history={history} />
+
+
+                    <Ads history={history} />
+
+
+                <div className="tr-footer">&nbsp;</div>
             </div>
 
         </>

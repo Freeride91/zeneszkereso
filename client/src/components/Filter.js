@@ -10,7 +10,6 @@ import {
 import { telepulesek } from '../resources/telepulesek';
 
 const Filter = ({ dispatch }) => {
-
     const [formData, setFormData] = useState({
         instrument: '',
         place: '',
@@ -34,10 +33,10 @@ const Filter = ({ dispatch }) => {
             ...formData,
             place: newValue
         })
-        dispatch({
-            type: FILTER_BY_DATA,
-            payload: { ...formData, place: newValue }
-        });
+            dispatch({
+                type: FILTER_BY_DATA,
+                payload: { ...formData, place: newValue }
+            });
     }
 
     // const handleSubmit = e => {
@@ -49,16 +48,15 @@ const Filter = ({ dispatch }) => {
         <>
             <div className="szuresContainer d-flex justify-content-center pb-2 mb-3">
                 <div className="szuresInner d-flex align-items-center mr-4">
-                    
-                    <h4 className="szuresFocim mr-5 mb-0 mt-4 text-secondary">Keres:</h4>
-                    <div className="form-group mr-3 mb-0">
+                    <h4 className="szuresFocim d-none d-md-block mr-md-5 mb-0 mt-4 text-secondary">Keres:</h4>
+                    <div className="form-group mr-1 mr-md-3 mb-0">
                         <label>Hangszer:</label>
                         <input type="text" className="form-control"
                             placeholder="pl: gitár" name="instrument" onInput={e => onChange(e)} />
                     </div>
 
 
-                    <div className="form-group mr-3 mb-0">
+                    <div className="form-group mr-1 mr-md-3 mb-0">
                         <label>Helyszín:</label>
                         <SuggestInput
                             suggestValues={telepulesek}

@@ -20,9 +20,9 @@ class Navbar extends Component {
         return (
             <div>
                 <nav className="navbar sticky-top navbar-expand-md bg-dark navbar-dark border-bottom">
-                    <div className="container-fluid controlMaxWidth">
+                    <div className="container-fluid px-0 controlMaxWidth1200">
 
-                        <Link to="/zeneszkereso/" className="navbar-brand"><i className="far fa-play-circle purpule"></i> ZENÉSZKERESŐ</Link>
+                        <Link to="/zeneszkereso/" className="navbar-brand"><i className="far fa-play-circle purpule"></i> Zenészkereső</Link>
 
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,32 +34,32 @@ class Navbar extends Component {
                                 
                                 {!this.props.isAuthenticated ?
                                     (<>
-                                        <li className="nav-item">
+                                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                                             <Link to="/zeneszkereso/login" className="nav-link mt-1 mr-4 py-1 btn btn-nav">
                                                 Hirdetés feladása
                                             </Link>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                                             <Link to="/zeneszkereso/register" className="nav-link mr-4"> Regisztráció </Link>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                                             <Link to="/zeneszkereso/login" className="nav-link"> Bejelentkezés </Link>
                                         </li>
                                     </>)
                                     :
                                     (<>
-                                        <li className="nav-item">
+                                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                                             <Link to="/zeneszkereso/add_ad" className="nav-link mt-1 mr-2 py-1 btn btn-nav">
                                                 Hirdetés feladása
                                             </Link>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                                             <Link to="/zeneszkereso/dashboard" className="nav-link px-3">
                                                 <i className="fas fa-user-circle"></i> &nbsp;
                                                 <strong>{this.props.user && (this.props.user.name)}</strong>
                                             </Link>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                                             <Link to="#" onClick={(e) => this.logout(e)} className="nav-link">
                                                 <i className="fas fa-sign-out-alt"></i> Kijelentkezés
                                                 </Link>

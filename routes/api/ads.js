@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 
-//User Model
+//AD Model
 const Ad = require('../../models/Ad');
 
 // ROUTE:   GET api/ads
@@ -48,8 +48,8 @@ router.get('/:ad_Id', async (req, res) => {
 
 // ROUTE:   POST api/ads
 // DESCR:   CREATE NEW AD
-// ACCES:   PRIVATE (not yet :)
-router.post('/', async (req, res) => {
+// ACCES:   PRIVATE
+router.post('/', auth, async (req, res) => {
     const { author, authorId, title, persOrBand, instrument, place, description, email, phoneNum } = req.body;
 
     try {
@@ -75,12 +75,17 @@ router.post('/', async (req, res) => {
 
 // ROUTE:   POST api/ads/:ad_Id
 // DESCR:   MODIFY AN AD
-// ACCES:   PRIVATE (not yet :)
-router.post('/:ad_Id', async (req, res) => {
+// ACCES:   PRIVATE
+router.post('/:ad_Id', auth, async (req, res) => {
     const { title, persOrBand, instrument, place, description, email, phoneNum } = req.body;
 
     try {
         const ad = await Ad.findById(req.params.ad_Id);
+
+        // Check users right to MODIFY
+        if (ad.authorId.toString() !== req.user._id) {
+            return res.status(401).json({ msg: 'Nincs jogosultságod a módosításra!' });
+        }
 
         ad.title = title;
         ad.pers_or_band = persOrBand;
@@ -101,7 +106,7 @@ router.post('/:ad_Id', async (req, res) => {
 
 // ROUTE:   DELETE api/ads/:id
 // DESCR:   Delete AD by ID
-// ACCES:   Private
+// ACCES:   PRIVATE
 router.delete('/:id', auth, async (req, res) => {
     try {
         const ad = await Ad.findById(req.params.id);
@@ -110,7 +115,7 @@ router.delete('/:id', auth, async (req, res) => {
             return res.status(404).json({ msg: 'Hirdetés nem található' });
         }
 
-        // Check users right to delete
+        // Check users right to DELETE
         if (ad.authorId.toString() !== req.user._id) {
             return res.status(401).json({ msg: 'Nincs jogosultságod a törlésre!' });
         }

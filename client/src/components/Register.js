@@ -70,10 +70,10 @@ class Register extends Component {
 
                         <form className="form" action="#" onSubmit={e => this.onSubmit(e)} autoComplete="false">
                             <div className="form-group">
-                                <input onChange={this.onChange} type="email" className="form-control" placeholder="E-mail cím" name="email" autoComplete="false"/>
+                                <input onChange={this.onChange} type="text" className="form-control" placeholder="Felhasználónév" name="name" autoComplete="false" />
                             </div>
                             <div className="form-group">
-                                <input onChange={this.onChange} type="text" className="form-control" placeholder="Felhasználónév" name="name" autoComplete="false" />
+                                <input onChange={this.onChange} type="email" className="form-control" placeholder="E-mail cím" name="email" autoComplete="false"/>
                             </div>
                             <div className="form-group">
                                 <input onChange={this.onChange} type="password" className="form-control" placeholder="Jelszó" name="password" minLength="6" autoComplete="false"/>

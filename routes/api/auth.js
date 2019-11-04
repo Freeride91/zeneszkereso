@@ -11,7 +11,7 @@ const User = require('../../models/User');
 
 // ROUTE:   GET api/auth/user
 // DESCR:   GET user data by TOKEN
-// ACCES:   private
+// ACCES:   PRIVATE
 router.get('/user', auth, async (req, res) => {
     try {
         //az auth middleware-ben helyeztük el a req-be a user id-t (token payload)

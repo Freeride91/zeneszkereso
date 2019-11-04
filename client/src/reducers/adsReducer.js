@@ -45,7 +45,7 @@ export default function (state = initialState, action) {
             }
         case EDIT_AD:
             const newAds = state.ads.map(ad => {
-                if (ad._id == payload._id) {
+                if (ad._id === payload._id) {
                     return payload;
                 } else {
                     return ad;
@@ -54,6 +54,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 ads: newAds,
+                ad: payload,
                 loading: false,
                 editing: false
             }

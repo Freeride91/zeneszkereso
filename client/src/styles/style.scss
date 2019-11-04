@@ -70,6 +70,19 @@ $almostblack: #272727;
         outline: none;
     }
 }
+.navbar {
+    padding: 0.3rem 1rem;
+}
+
+.navbar-brand {
+    // font-family: 'Montserrat', sans-serif;
+    // font-family: 'Raleway', sans-serif;
+    font-family: 'Kalam', cursive;
+    font-weight: normal;
+    font-size: 1.6rem;
+    padding-bottom: 0;
+    // letter-spacing: 2px;
+}
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgb(211, 211, 211);
@@ -103,8 +116,9 @@ $almostblack: #272727;
     font-family: 'Montserrat', sans-serif;
 }
 
-.controlMaxWidth {
-    max-width: 1400px;
+.controlMaxWidth1200 {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .szuresFocim {
@@ -130,7 +144,7 @@ $almostblack: #272727;
     label {
         margin-bottom: 2px;
     }
-    
+
 }
 
 .szuresInner {
@@ -141,7 +155,8 @@ $almostblack: #272727;
 
 //HIRDETÉSEK
 .hirdetesekContainer {
-    margin: 0 0 50px 0;
+    max-width: 900px;
+    margin: 0 auto 50px;
 }
 
 .hirdetes {
@@ -151,6 +166,10 @@ $almostblack: #272727;
     margin: 0 0 20px;
     // min-height: 150px;
     padding: 1.5rem 2rem 1rem;
+
+    .rightBorder {
+        border-right: 1px solid #dedede;
+    }
 
     .iconUser {
         background: #808080;
@@ -175,6 +194,7 @@ $almostblack: #272727;
     .author {
         color: $red;
         font-size: 0.9rem;
+
         i {
             font-size: 0.8rem;
         }
@@ -218,8 +238,10 @@ $almostblack: #272727;
 
     .btn-adMore {
         padding: 4px 6px 4px 8px;
-        border: 1px solid #ddd;
+        // border: 1px solid #ddd;
         color: $text-secondary;
+        border: 1px solid #dd9700;
+        color: #dd9700;
         font-size: 0.9rem;
     }
 
@@ -227,18 +249,21 @@ $almostblack: #272727;
         width: 49%;
         padding: 5px 10px;
         font-weight: bold;
-        color: white;
-        background-color: #d63939;
-        font-size: 0.8rem;
+        color: #d63939;
+        background-color: white;
+        border: 1px solid #d63939;
+        font-size: 0.85rem;
     }
 
     .btn-adEdit {
         width: 49%;
         padding: 5px 10px;
         font-weight: bold;
-        color: white;
-        background-color: #e6a51a;
-        font-size: 0.8rem;
+        // color: #e6a51a;
+        color: #e49c00;
+        background-color: white;
+        border: 1px solid #dd9700;
+        font-size: 0.85rem;
     }
 
     .description {
@@ -247,10 +272,18 @@ $almostblack: #272727;
 
     .kapcsolatDetails {
         font-size: 0.9rem;
+
         i {
             font-size: 1.2rem;
             margin-right: 5px;
         }
+    }
+
+    .tr-footer {
+        display: block;
+        height: 150px;
+        width: 100px;
+        background: transparent;
     }
 }
 
@@ -265,19 +298,18 @@ $almostblack: #272727;
     position: fixed;
     left: 0;
     bottom: 0;
-
-
 }
 
 // LOGIN PAGE
 
 .loginSiteContainer {
     // max-width: 500px;
+    padding-top: 4rem;
     height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
 }
 
 .loginBox {
@@ -353,4 +385,41 @@ $almostblack: #272727;
     height: 0px;
     opacity: 0;
     transition: opacity 500ms linear, height 300ms ease-out;
+}
+
+
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+
+
+    .hirdetes {
+        padding: 1.5rem 1rem 1rem;
+
+        .rightBorder {
+            border: none;
+        }
+
+        .description {
+            margin-top: 0.5rem;
+        }
+
+        .hide-sm {
+            display: none;
+        }
+
+        // .kapcsolatDetails {
+        //     div {
+        //         // text-align: end;
+        //         // font-weight: bold;
+        //         // text-decoration: underline;
+        //     }
+        //     span {
+        //         // padding-bottom: 5px;
+        //         // display: block;
+        //         // text-align: end;
+        //     }
+        // }
+    }
+
 }

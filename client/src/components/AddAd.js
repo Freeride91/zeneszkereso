@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import SuggestInput from './SuggestInput';
 
 import { setAlert } from '../actions/alertActions';
-import CustomAlert from './layout/CustomAlert';
+// import CustomAlert from './layout/CustomAlert';
 import { telepulesek } from '../resources/telepulesek';
 
 const AddAd = ({
@@ -13,9 +13,7 @@ const AddAd = ({
     auth: { user, isAuthenticated },
     history,
     newAd,
-    setEditAd,
     editAd,
-    setAlert
 }) => {
     const [formData, setFormData] = useState({
         authorId: '',
@@ -30,7 +28,6 @@ const AddAd = ({
     });
 
     useEffect(() => {
-
         if (user != null) {
             setFormData({
                 ...formData,
@@ -65,21 +62,27 @@ const AddAd = ({
         })
     }
 
+    const vissza = (e) => {
+        e.preventDefault();
+        history.go(-1); return false;
+    }
+
     const onSubmit = async (e) => {
         e.preventDefault();
         if (editing) {
             editAd(ad._id, formData);
-            history.push('/zeneszkereso/');
+            history.push('/zeneszkereso/ad_details');
+            // history.goBack();
         } else {
             newAd(formData);
             history.push('/zeneszkereso/');
         }
-
     }
 
     return (
         <>
             <div className="newAdBox">
+
                 <h2 className="red text-center">{!editing ? 'Új hirdetés' : 'Hirdetés módosítása'}</h2>
 
                 <form className="form newAdForm" action="#" onSubmit={e => onSubmit(e)} >
@@ -90,9 +93,12 @@ const AddAd = ({
                             type="text"
                             className="form-control"
                             name="title"
+                            placeholder="pl.: Gitárost keresünk most induló hard-rock zenekarba"
                             required />
                     </div>
-                    <div className="form-group text-center d-flex justify-content-between">
+
+
+                    <div className="form-group d-md-flex justify-content-between">
                         <label className="font-weight-bold" htmlFor="hirdeto_type">Hirdető: </label>
                         <div className="form-check">
                             <input
@@ -115,8 +121,10 @@ const AddAd = ({
                             <label className="form-check-label" htmlFor="persOrBand">zenekar (zenész kerestetik)</label>
                         </div>
                     </div>
+
                     <hr />
-                    <div className="form-group">
+                    
+                    <div className="form-group mb-1">
                         <div className="divideFlexInput">
                             <label htmlFor="instrument" className="mt-2"><i className="fas fa-guitar"></i> &nbsp;Hangszer:</label>
                             <input
@@ -180,11 +188,12 @@ const AddAd = ({
                 </form>
 
                 <p className="mt-3 mb-0">
-                    <Link onClick={history.goBack} className="text-secondary">
+                    <Link to="#" onClick={e => vissza(e)} className="text-secondary">
                         <i className="fas fa-chevron-left"></i>  vissza
                     </Link>
                 </p>
             </div>
+            <div className="tr-footer">&nbsp;</div>
         </>
     )
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'moment/locale/hu';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { setEditAd, deleteAd, getAdById } from '../actions/adsActions';
-import { useDispatch } from 'react-redux';
-import { setAlert } from '../actions/alertActions';
+// import { useDispatch } from 'react-redux';
+// import { setAlert } from '../actions/alertActions';
 
 const Ad = ({
     history,
@@ -15,7 +15,7 @@ const Ad = ({
     getAdById,
     setEditAd
 }) => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const editThisAd = () => {
         getAdById(_id);
@@ -24,7 +24,6 @@ const Ad = ({
     }
 
     const moreInfo = () => {
-        // dispatch(setAlert({ msg: 'Fejlesztés alatt!' }, 'secondary'));
         getAdById(_id);
         history.push('/zeneszkereso/ad_details');
     }
@@ -33,25 +32,25 @@ const Ad = ({
         <div className='hirdetes'>
             <div className="row mb-2">
 
-                <div className="col-md-1 px-1 d-flex align-self-center justify-content-center">
+                <div className="d-flex col-md-1 px-1 align-self-center justify-content-center">
                     {pers_or_band === 'person' ?
                         (<i className="fas fa-user iconUser"></i>) :
                         (<i className="fas fa-users iconUsers"></i>)}
                 </div>
 
-                <div className="col-md-5 border-right pr-0 d-flex">
+                <div className="d-flex col-md-5 pr-0 rightBorder">
                     <div className="align-self-center w-100">
 
                         <div className="author pr-3 text-center"><i className="fas fa-user" /> <u>{author}</u></div>
 
                         <h5 className="py-2 pr-3 text-center border-bottom">{title}</h5>
 
-                        <div className="pr-3 d-flex justify-content-between">
+                        <div className="d-flex pr-3 justify-content-between">
                             <div className="place"><i className="fas fa-street-view"></i>&nbsp; {place}</div>
                             <div className="category"> {instrument} </div>
                         </div>
 
-                        <div className="pr-3 mt-2 d-flex justify-content-between">
+                        <div className="d-flex pr-3 mt-2 justify-content-between">
                             <div className="date"><i className="far fa-calendar-alt"></i>&nbsp; <Moment locale="hu" format="MMMM Do, HH:mm">{posted_date}</Moment></div>
                             <div className="moreinfo">
                                 <button className='btn btn-adMore' onClick={moreInfo}>
@@ -62,8 +61,8 @@ const Ad = ({
 
                         {!isLoading && user && user._id === authorId ?
                             (
-                                <div className="pr-3 mt-1">
-                                    <button className='btn btn-adEdit mr-1' onClick={e => { editThisAd(e) }}>
+                                <div className="d-flex pr-3 mt-1 justify-content-between">
+                                    <button className='btn btn-adEdit' onClick={e => { editThisAd(e) }}>
                                         szerkesztés &nbsp; <i className="far fa-edit"></i>
                                     </button>
                                     <button className='btn btn-adDelete' onClick={e =>
@@ -75,15 +74,23 @@ const Ad = ({
 
                     </div>
                 </div>
-                <div className="col-md-6 d-flex pl-4">
+                <div className="d-flex col-md-6 pl-md-4">
                     <p className="text-justify align-self-center description">
-                        {description.substring(0, 420)}
-                        {description.length > 420 ? <>
-                            <b>... &nbsp; &nbsp;</b>
-                        </> : '  '}
-                        {<button className='btn btn-adMore' onClick={moreInfo}>
+
+                        {description.substring(0, 270)}
+
+                        {description.length > 270 ?
+                            <>
+                                <b>... </b>
+                            </> : '  '}
+
+                        &nbsp; &nbsp; <Link to="#" onClick={moreInfo} className="text-secondary">
+                            <u>tovább</u>&nbsp;<i className="fas fa-chevron-right"></i>
+                        </Link>
+
+                        {/* {<button className='btn btn-adMore' onClick={moreInfo}>
                             több info <i className="fas fa-chevron-right"></i>
-                        </button>}
+                        </button>} */}
                     </p>
                 </div>
             </div>
