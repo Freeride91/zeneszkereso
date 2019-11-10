@@ -3,29 +3,29 @@ import { Link } from 'react-router-dom';
 import 'moment/locale/hu';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { setEditAd, deleteAd, getAdById } from '../actions/adsActions';
+import { setEditPost, deletePost, getPostById } from '../actions/postsActions';
 // import { useDispatch } from 'react-redux';
 // import { setAlert } from '../actions/alertActions';
 
-const Ad = ({
+const Post = ({
     history,
     auth: { user, isLoading, isAuthenticated },
-    ad: { _id, author, authorId, title, pers_or_band, instrument, place, description, posted_date },
-    deleteAd,
-    getAdById,
-    setEditAd
+    post: { _id, author, authorId, title, pers_or_band, instrument, place, description, posted_date },
+    deletePost,
+    getPostById,
+    setEditPost
 }) => {
     // const dispatch = useDispatch();
 
-    const editThisAd = () => {
-        getAdById(_id);
-        setEditAd(true);
-        history.push('/zeneszkereso/add_ad');
+    const editThisPost = () => {
+        getPostById(_id);
+        setEditPost(true);
+        history.push('/zeneszkereso/add_post');
     }
 
     const moreInfo = () => {
-        getAdById(_id);
-        history.push('/zeneszkereso/ad_details');
+        getPostById(_id);
+        history.push('/zeneszkereso/post_details');
     }
 
     return (
@@ -62,11 +62,11 @@ const Ad = ({
                         {!isLoading && user && user._id === authorId ?
                             (
                                 <div className="d-flex pr-3 mt-1 justify-content-between">
-                                    <button className='btn btn-adEdit' onClick={e => { editThisAd(e) }}>
+                                    <button className='btn btn-adEdit' onClick={e => { editThisPost(e) }}>
                                         szerkesztés &nbsp; <i className="far fa-edit"></i>
                                     </button>
                                     <button className='btn btn-adDelete' onClick={e =>
-                                        deleteAd(_id)}>törlés &nbsp; <i className="far fa-trash-alt"></i>
+                                        deletePost(_id)}>törlés &nbsp; <i className="far fa-trash-alt"></i>
                                     </button>
                                 </div>
                             ) : (null)
@@ -102,4 +102,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, { deleteAd, getAdById, setEditAd })(Ad);
+export default connect(mapStateToProps, { deletePost, getPostById, setEditPost })(Post);

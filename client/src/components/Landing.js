@@ -1,5 +1,5 @@
 import React from 'react';
-import Ads from './Ads';
+import Posts from './Posts';
 import Filter from './Filter';
 import CustomAlert from './layout/CustomAlert';
 
@@ -19,7 +19,7 @@ export default function Landing({ history }) {
             <div className="hirdetesekContainer">
 
 
-                    <Ads history={history} />
+                    <Posts history={history} />
 
 
                 <div className="tr-footer">&nbsp;</div>

@@ -49,7 +49,7 @@ class Navbar extends Component {
                                     :
                                     (<>
                                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                            <Link to="/zeneszkereso/add_ad" className="nav-link mt-1 mr-2 py-1 btn btn-nav">
+                                            <Link to="/zeneszkereso/add_post" className="nav-link mt-1 mr-2 py-1 btn btn-nav">
                                                 Hirdetés feladása
                                             </Link>
                                         </li>

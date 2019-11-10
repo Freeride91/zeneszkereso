@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
-import { newAd, setEditAd, editAd } from '../actions/adsActions';
+import { newPost, setEditPost, editPost } from '../actions/postsActions';
 import { Link } from 'react-router-dom';
 import SuggestInput from './SuggestInput';
 
@@ -8,12 +8,12 @@ import { setAlert } from '../actions/alertActions';
 // import CustomAlert from './layout/CustomAlert';
 import { telepulesek } from '../resources/telepulesek';
 
-const AddAd = ({
-    ads: { ad, editing },
+const AddPost = ({
+    posts: { post, editing },
     auth: { user, isAuthenticated },
     history,
-    newAd,
-    editAd,
+    newPost,
+    editPost,
 }) => {
     const [formData, setFormData] = useState({
         authorId: '',
@@ -38,20 +38,20 @@ const AddAd = ({
             })
         }
 
-        //ha szerkeszteni jövök meglévő AD-dal
-        if (editing && ad !== null) {
+        //ha szerkeszteni jövök meglévő POST-tal
+        if (editing && post !== null) {
             setFormData({
-                title: ad.title,
-                persOrBand: ad.pers_or_band,
-                instrument: ad.instrument,
-                place: ad.place,
-                description: ad.description,
-                email: ad.email ? ad.email : user.email,
-                phoneNum: ad.phoneNum ? ad.phoneNum : ''
+                title: post.title,
+                persOrBand: post.pers_or_band,
+                instrument: post.instrument,
+                place: post.place,
+                description: post.description,
+                email: post.email ? post.email : user.email,
+                phoneNum: post.phoneNum ? post.phoneNum : ''
             })
         }
         // eslint-disable-next-line
-    }, [user, ad, isAuthenticated]);
+    }, [user, post, isAuthenticated]);
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -70,11 +70,11 @@ const AddAd = ({
     const onSubmit = async (e) => {
         e.preventDefault();
         if (editing) {
-            editAd(ad._id, formData);
-            history.push('/zeneszkereso/ad_details');
+            editPost(post._id, formData);
+            history.push('/zeneszkereso/post_details');
             // history.goBack();
         } else {
-            newAd(formData);
+            newPost(formData);
             history.push('/zeneszkereso/');
         }
     }
@@ -200,7 +200,7 @@ const AddAd = ({
 
 const mapStateToProps = state => ({
     auth: state.auth,
-    ads: state.ads
+    posts: state.posts
 })
 
-export default connect(mapStateToProps, { newAd, setEditAd, editAd, setAlert })(AddAd);
+export default connect(mapStateToProps, { newPost, setEditPost, editPost, setAlert })(AddPost);

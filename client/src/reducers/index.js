@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
-import adsReducer from './adsReducer';
+import postsReducer from './postsReducer';
 import alertReducer from './alertReducer';
 
 export default combineReducers({
-  ads: adsReducer,
+  posts: postsReducer,
   auth: authReducer,
   alert: alertReducer
 });

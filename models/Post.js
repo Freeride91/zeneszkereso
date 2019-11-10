@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Create Schema
-const AdSchema = new Schema({
+const PostSchema = new Schema({
     authorId: {
         type: String,
         required: true
@@ -43,4 +43,4 @@ const AdSchema = new Schema({
     }
 });
 
-module.exports = Ad = mongoose.model('ad', AdSchema);
+module.exports = Post = mongoose.model('post', PostSchema);

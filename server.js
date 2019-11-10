@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
 const config = require('config');
 const cors = require('cors');
 
@@ -23,7 +22,7 @@ mongoose.connect(db, {
 //ROUTES
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/ads', require('./routes/api/ads'));
+app.use('/api/posts', require('./routes/api/posts'));
 
 const port = process.env.PORT || 5005;
 

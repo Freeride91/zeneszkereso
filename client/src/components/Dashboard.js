@@ -2,15 +2,15 @@ import React, { useEffect } from 'react'
 // import PropTypes from 'prop-types'
 import Spinner from './layout/Spinner';
 import CustomAlert from './layout/CustomAlert';
-import Ad from './Ad';
+import Post from './Post';
 
 import { connect } from 'react-redux';
-import { getAdsByUser } from '../actions/adsActions';
+import { getPostsByUser } from '../actions/postsActions';
 
-const Dashboard = ({ history, getAdsByUser, auth: { isLoading, user }, ads }) => {
+const Dashboard = ({ history, getPostsByUser, auth: { isLoading, user }, posts }) => {
     useEffect(() => {
-        if (user) getAdsByUser(user._id);
-    }, [getAdsByUser, user]);
+        if (user) getPostsByUser(user._id);
+    }, [getPostsByUser, user]);
 
     return isLoading || user === null ? <Spinner /> :
         <>
@@ -22,11 +22,11 @@ const Dashboard = ({ history, getAdsByUser, auth: { isLoading, user }, ads }) =>
 
                 <h3 className="text-center">Hirdetéseid:</h3>
                 <div className="hirdetesekContainer">
-                    {ads.loading ? (<Spinner />) :
-                        ads.ads.length === 0 ?
+                    {posts.loading ? (<Spinner />) :
+                        posts.posts.length === 0 ?
                             (<h4 className="text-center font-weight-light mt-4">Jelenleg nincs hirdetésed</h4>)
                             :
-                            ads.ads.map(ad => <Ad history={history} key={ad._id} ad={ad} />)
+                            posts.posts.map(post => <Post history={history} key={post._id} post={post} />)
                     }
                 </div>
                 <div className="tr-footer">&nbsp;</div>
@@ -40,7 +40,7 @@ const Dashboard = ({ history, getAdsByUser, auth: { isLoading, user }, ads }) =>
 
 const mapStateToProps = state => ({
     auth: state.auth,
-    ads: state.ads
+    posts: state.posts
 })
 
-export default connect(mapStateToProps, { getAdsByUser })(Dashboard)
+export default connect(mapStateToProps, { getPostsByUser })(Dashboard)

@@ -10,13 +10,13 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
-export const ADD_AD = 'ADD_AD';
-export const GET_ADS = 'GET_ADS';
-export const GET_AD = 'GET_AD';
-export const SET_EDIT_AD = 'SET_EDIT_AD';
-export const EDIT_AD = 'EDIT_AD';
-export const DELETE_AD = 'DELETE_AD';
-export const AD_ERROR = 'AD_ERROR';
+export const ADD_POST = 'ADD_POST';
+export const GET_POSTS = 'GET_POSTS';
+export const GET_POST = 'GET_POST';
+export const SET_EDIT_POST = 'SET_EDIT_POST';
+export const EDIT_POST = 'EDIT_POST';
+export const DELETE_POST = 'DELETE_POST';
+export const POST_ERROR = 'POST_ERROR';
 
 export const SET_ALERT = 'SET_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
@@ -24,5 +24,5 @@ export const REMOVE_ALERT = 'REMOVE_ALERT';
 
 export const FILTER_BY_DATA = 'FILTER_BY_DATA';
 
-export const link = 'https://zeneszkereso.herokuapp.com/';
-// export const link = 'http://localhost:5005/';
+// export const link = 'https://zeneszkereso.herokuapp.com/';
+export const link = 'http://localhost:5005/';

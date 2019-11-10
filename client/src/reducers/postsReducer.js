@@ -1,18 +1,18 @@
 import {
-    GET_ADS,
-    GET_AD,
-    SET_EDIT_AD,
-    EDIT_AD,
-    ADD_AD,
-    DELETE_AD,
-    AD_ERROR,
+    GET_POSTS,
+    GET_POST,
+    SET_EDIT_POST,
+    EDIT_POST,
+    ADD_POST,
+    DELETE_POST,
+    POST_ERROR,
     FILTER_BY_DATA
 } from '../actions/types';
 
 const initialState = {
-    ads: [],
-    ad: null,
-    filteredAds: [],
+    posts: [],
+    post: null,
+    filteredPosts: [],
     filtering: false,
     editing: false,
     loading: true,
@@ -23,60 +23,60 @@ export default function (state = initialState, action) {
     const { type, payload } = action;
 
     switch (type) {
-        case GET_ADS:
+        case GET_POSTS:
             return {
                 ...state,
-                ads: payload,
-                ad: null,
+                posts: payload,
+                post: null,
                 filtering: false,
                 editing: false,
                 loading: false
             }
-        case GET_AD:
+        case GET_POST:
             return {
                 ...state,
-                ad: payload,
+                post: payload,
                 loading: false
             }
-        case SET_EDIT_AD:
+        case SET_EDIT_POST:
             return {
                 ...state,
                 editing: payload
             }
-        case EDIT_AD:
-            const newAds = state.ads.map(ad => {
-                if (ad._id === payload._id) {
+        case EDIT_POST:
+            const newPosts = state.posts.map(post => {
+                if (post._id === payload._id) {
                     return payload;
                 } else {
-                    return ad;
+                    return post;
                 }
             });
             return {
                 ...state,
-                ads: newAds,
-                ad: payload,
+                posts: newPosts,
+                post: payload,
                 loading: false,
                 editing: false
             }
-        case ADD_AD:
+        case ADD_POST:
             return {
                 ...state,
-                ads: [payload, ...state.ads],
+                posts: [payload, ...state.posts],
                 filtering: false,
                 editing: false,
                 loading: false
             }
-        case DELETE_AD:
+        case DELETE_POST:
             return {
                 ...state,
-                ads: state.ads.filter(ad => ad._id !== payload),
+                posts: state.posts.filter(post => post._id !== payload),
                 loading: false
             }
-        case AD_ERROR:
+        case POST_ERROR:
             return {
                 ...state,
                 error: payload,
-                ad: null,
+                post: null,
                 filtering: false,
                 editing: false,
                 loading: false,
@@ -84,19 +84,19 @@ export default function (state = initialState, action) {
         case FILTER_BY_DATA:
             return {
                 ...state,
-                filteredAds: state.ads.filter(ad => {
+                filteredPosts: state.posts.filter(post => {
                     if (
-                        (ad.instrument.toLowerCase().includes(payload.instrument.toLowerCase())) &&
-                        (ad.place.toLowerCase().includes(payload.place.toLowerCase()))
+                        (post.instrument.toLowerCase().includes(payload.instrument.toLowerCase())) &&
+                        (post.place.toLowerCase().includes(payload.place.toLowerCase()))
                     ) {
                         if (payload.person) {
-                            if (ad.pers_or_band === 'person') {
-                                return ad;
+                            if (post.pers_or_band === 'person') {
+                                return post;
                             }
                         }
                         if (payload.band) {
-                            if (ad.pers_or_band === 'band') {
-                                return ad;
+                            if (post.pers_or_band === 'band') {
+                                return post;
                             }
                         }
                     }
