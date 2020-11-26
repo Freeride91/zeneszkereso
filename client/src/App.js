@@ -44,7 +44,7 @@ function App() {
 
         <AppNavbar />
 
-        <section className="container-fluid">
+        <section className="container-lg">
           <Switch>
             <Route exact path="/zeneszkereso/login" component={Login} />
             <Route exact path="/zeneszkereso/dashboard" component={Dashboard} />

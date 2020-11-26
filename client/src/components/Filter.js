@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import SuggestInput from './SuggestInput';
-// import { setAlert } from '../actions/alertActions';
-// import { Row, Col } from 'reactstrap';
 import {
     FILTER_BY_DATA
 } from '../actions/types';
@@ -39,16 +37,11 @@ const Filter = ({ dispatch }) => {
             });
     }
 
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     dispatch(setAlert({ msg: 'Fejlesztés alatt!' }, 'secondary'));
-    // }
-
     return (
         <>
-            <div className="szuresContainer d-flex justify-content-center pb-2 mb-3">
+            <div className="filter--container d-flex justify-content-center pb-2 pt-2 mb-3">
                 <div className="szuresInner d-flex align-items-center mr-4">
-                    <h4 className="szuresFocim d-none d-md-block mr-md-5 mb-0 mt-4 text-secondary">Keres:</h4>
+                    <h4 className="filter--title d-none d-md-block mr-md-5 mb-0 mt-4 text-secondary">Keres:</h4>
                     <div className="form-group mr-1 mr-md-3 mb-0">
                         <label>Hangszer:</label>
                         <input type="text" className="form-control"

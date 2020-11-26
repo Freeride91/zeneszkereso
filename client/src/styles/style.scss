@@ -1,14 +1,9 @@
-html,
-body {
-    height: 100%;
-    width: 100%;
-}
-
 $purpule: #ca28cf;
 $orange: #e6a51a;
 $red: #b40000;
 $darker_red: #880000;
 $text-secondary: #616A72;
+$bs-secondary: #343A40;
 $almostblack: #272727;
 
 .purpule {
@@ -70,18 +65,13 @@ $almostblack: #272727;
         outline: none;
     }
 }
-.navbar {
-    padding: 0.3rem 1rem;
-}
 
 .navbar-brand {
-    // font-family: 'Montserrat', sans-serif;
-    // font-family: 'Raleway', sans-serif;
-    font-family: 'Kalam', cursive;
+    font-family: 'Raleway', sans-serif;
     font-weight: normal;
     font-size: 1.6rem;
     padding-bottom: 0;
-    // letter-spacing: 2px;
+    padding-top: 0;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -111,40 +101,18 @@ $almostblack: #272727;
     }
 }
 
-
-.focim {
+.main--title {
     font-family: 'Montserrat', sans-serif;
 }
 
-.controlMaxWidth1200 {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.szuresFocim {
+.filter--title {
     font-family: 'Montserrat', sans-serif;
 }
 
-// .szuresForm {
-//     background-color: #fff;
-//     border: 1px solid #ddd;
-//     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-//     margin: 0;
-//     padding: 1rem;
-// }
-
-.szuresContainer {
-
-    // border: 1px solid rgb(233, 233, 233);
-    padding-top: 0.5rem;
-
-    // box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
-    // max-width: 700px;
-
+.filter--container {
     label {
         margin-bottom: 2px;
     }
-
 }
 
 .szuresInner {
@@ -153,57 +121,61 @@ $almostblack: #272727;
     }
 }
 
-//HIRDETÉSEK
-.hirdetesekContainer {
-    max-width: 900px;
-    margin: 0 auto 50px;
+//HIRDETÉSEK ----------------------------------------
+.post-list-wrap {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.hirdetes-outer-wrapper {
+    border: 1px solid #dedede;
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
 }
 
 .hirdetes {
+    width: 100%;
     background-color: #fff;
-    border: 1px solid #dedede;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
-    margin: 0 0 20px;
-    // min-height: 150px;
-    padding: 1.5rem 2rem 1rem;
+    overflow: hidden;
 
     .rightBorder {
         border-right: 1px solid #dedede;
     }
 
     .iconUser {
-        background: #808080;
-        color: white;
-        border-radius: 50%;
-        padding: 9px 16px;
-
+        // background: #808080;
+        // color: white;
+        color: $bs-secondary;
+        // padding: 9px 16px;
         font-size: 2.2rem;
-        text-align: center;
+        // text-align: center;
     }
 
     .iconUsers {
-        background: #b895b8;
-        color: white;
-        border-radius: 50%;
-        padding: 10px;
-
+        // background: #808080;
+        // color: white;
+        color: $bs-secondary;
+        // padding: 10px;
         font-size: 2.2rem;
-        text-align: center;
+        // text-align: center;
     }
 
     .author {
         color: $red;
         font-size: 0.9rem;
-
         i {
             font-size: 0.8rem;
         }
     }
 
     h5 {
-        font-family: 'Roboto Condensed', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
         width: 100%;
         font-size: 1.4rem;
+        background: #e6e6e6;
+        overflow: hidden;
+        padding: 10px;
     }
 
     p {
@@ -259,7 +231,6 @@ $almostblack: #272727;
         width: 49%;
         padding: 5px 10px;
         font-weight: bold;
-        // color: #e6a51a;
         color: #e49c00;
         background-color: white;
         border: 1px solid #dd9700;
@@ -267,6 +238,7 @@ $almostblack: #272727;
     }
 
     .description {
+        font-family: "Roboto", sans-serif;
         color: $almostblack;
     }
 
@@ -300,16 +272,13 @@ $almostblack: #272727;
     bottom: 0;
 }
 
-// LOGIN PAGE
-
+// LOGIN PAGE ----------------------------------------------------
 .loginSiteContainer {
-    // max-width: 500px;
     padding-top: 4rem;
     height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-content: center;
 }
 
 .loginBox {
@@ -391,35 +360,9 @@ $almostblack: #272727;
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
-
-
     .hirdetes {
-        padding: 1.5rem 1rem 1rem;
-
-        .rightBorder {
-            border: none;
-        }
-
-        .description {
-            margin-top: 0.5rem;
-        }
-
         .hide-sm {
             display: none;
         }
-
-        // .kapcsolatDetails {
-        //     div {
-        //         // text-align: end;
-        //         // font-weight: bold;
-        //         // text-decoration: underline;
-        //     }
-        //     span {
-        //         // padding-bottom: 5px;
-        //         // display: block;
-        //         // text-align: end;
-        //     }
-        // }
     }
-
 }
