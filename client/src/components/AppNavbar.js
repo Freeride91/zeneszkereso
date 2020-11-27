@@ -41,12 +41,12 @@ class Navbar extends Component {
                                 {!this.props.isAuthenticated ? (
                                     <>
                                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                            <Link to="/zeneszkereso/login" className="nav-link mt-1 mr-4 py-1 btn btn-nav">
+                                            <Link to="/zeneszkereso/login" className="nav-link btn btn-nav">
                                                 Hirdetés feladása
                                             </Link>
                                         </li>
                                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                            <Link to="/zeneszkereso/register" className="nav-link mr-4">
+                                            <Link to="/zeneszkereso/register" className="nav-link">
                                                 Regisztráció
                                             </Link>
                                         </li>
@@ -59,12 +59,12 @@ class Navbar extends Component {
                                 ) : (
                                     <>
                                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                            <Link to="/zeneszkereso/add_post" className="nav-link mt-1 mr-2 py-1 btn btn-nav">
+                                            <Link to="/zeneszkereso/add_post" className="nav-link btn btn-nav">
                                                 Hirdetés feladása
                                             </Link>
                                         </li>
                                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                            <Link to="/zeneszkereso/dashboard" className="nav-link px-3">
+                                            <Link to="/zeneszkereso/dashboard" className="nav-link">
                                                 <i className="fas fa-user-circle"></i> &nbsp;
                                                 <strong>{this.props.user && this.props.user.name}</strong>
                                             </Link>

@@ -1,12 +1,8 @@
-import React from 'react';
-import spinner from './spinner.gif';
+import React from "react";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 export default () => (
-  <>
-    <img
-      src={spinner}
-      style={{ width: '200px', margin: 'auto', display: 'block' }}
-      alt='Loading...'
-    />
-  </>
+    <div className="loader-container">
+        <ScaleLoader size={50} color={"#525A62"} loading={true} />
+    </div>
 );

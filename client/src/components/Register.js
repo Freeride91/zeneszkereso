@@ -64,7 +64,7 @@ class Register extends Component {
 
                     <CustomAlert />
 
-                    <div className="loginBox text-center mt-3">
+                    <div className="login-card text-center">
                         <h1 className="red">Regisztráció</h1>
                         <p className="lead"><i className="fas fa-user"></i> Hozz létre egy új fiókot </p>
 

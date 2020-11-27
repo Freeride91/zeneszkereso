@@ -17,15 +17,15 @@ const Dashboard = ({ history, getPostsByUser, auth: { isLoading, user }, posts }
     ) : (
         <>
             <div>
-                <h2 className="mt-4">
-                    Üdv a zenészkeresőn, <span className="purpule">{user.name}</span>!
+                <h2 className="pt-4">
+                    Üdv a zenészkeresőn, <span className="red">{user.name}</span>!
                 </h2>
                 <hr />
-                <br />
                 <CustomAlert />
 
-                <h3 className="text-center">Hirdetéseid:</h3>
-                <div>
+                <h3 className="text-center mt-1 mb-3">Hirdetéseid:</h3>
+
+                <div className="post-list-wrapper">
                     {posts.loading ? (
                         <Spinner />
                     ) : posts.posts.length === 0 ? (
@@ -34,7 +34,6 @@ const Dashboard = ({ history, getPostsByUser, auth: { isLoading, user }, posts }
                         posts.posts.map((post) => <Post history={history} key={post._id} post={post} />)
                     )}
                 </div>
-                <div className="tr-footer">&nbsp;</div>
             </div>
         </>
     );

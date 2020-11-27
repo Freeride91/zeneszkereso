@@ -19,7 +19,7 @@ const Posts = ({ history, getPosts, posts: { posts, filteredPosts, filtering, lo
         renderedPosts = posts.map((post) => <Post history={history} key={post._id} post={post} />);
     }
 
-    return <div className="post-list-wrap">{renderedPosts}</div>;
+    return <div className="post-list-wrapper">{renderedPosts}</div>;
 };
 
 Posts.propTypes = {

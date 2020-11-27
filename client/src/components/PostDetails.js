@@ -55,17 +55,16 @@ const PostDetails = ({
 
                     <div className="d-flex">
                         <div className="w-100">
-
-                            <div className="author mb-2 text-center"><i className="fas fa-user" /> <u>{post.author}</u></div>
+                            <div className="author mb-2 text-center"><i className="fas fa-user" />&nbsp;{post.author}</div>
 
                             <h5 className="py-2 text-center border-bottom">{post.title}</h5>
 
-                            <div className="pr-3 d-flex justify-content-between">
+                            <div className="d-flex justify-content-between">
                                 <div className="place"><i className="fas fa-street-view"></i>&nbsp; {post.place}</div>
                                 <div className="category"> {post.instrument} </div>
                             </div>
 
-                            <div className="pr-3 mt-2 d-flex justify-content-between">
+                            <div className="mt-2 d-flex justify-content-between">
                                 <div className="date">
                                     <i className="far fa-calendar-alt"></i>&nbsp;&nbsp;
                                 <Moment locale="hu" format="MMMM Do, HH:mm">{post.posted_date}</Moment>
@@ -94,10 +93,10 @@ const PostDetails = ({
                         (<>
                             <hr />
                             <div className="d-flex justify-content-between">
-                                <button className='btn btn-adEdit mr-1' onClick={e => { editThisPost(e) }}>
+                                <button className='btn btn-edit mr-1' onClick={e => { editThisPost(e) }}>
                                     szerkesztés &nbsp; <i className="far fa-edit"></i>
                                 </button>
-                                <button className='btn btn-adDelete' onClick={e => deleteThisPost(e)}>
+                                <button className='btn btn-delete' onClick={e => deleteThisPost(e)}>
                                     törlés &nbsp; <i className="far fa-trash-alt"></i>
                                 </button>
                             </div>

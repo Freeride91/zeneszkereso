@@ -57,11 +57,15 @@
 }
 
 .navbar-brand {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: normal;
   font-size: 1.6rem;
   padding-bottom: 0;
   padding-top: 0;
+}
+
+.navbar-brand i {
+  color: #fff;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -72,10 +76,15 @@
   color: white;
 }
 
+.nav-link {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
 .btn-nav {
+  border: 1px solid lightgray;
   color: white;
   background: none;
-  border: 1px solid lightgray;
 }
 
 .btn-nav:hover {
@@ -89,12 +98,27 @@
   outline: none;
 }
 
+.full-site-container {
+  background-color: #f3f5ff;
+  min-height: calc(100vh - 60px - 30px);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.loader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 .main--title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .filter--title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .filter--container label {
@@ -107,25 +131,23 @@
           flex-grow: 1;
 }
 
-.post-list-wrap {
+.post-list-wrapper {
   display: -ms-grid;
   display: grid;
   gap: 16px;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-}
-
-.hirdetes-outer-wrapper {
-  border: 1px solid #dedede;
-  -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
+  padding-bottom: 20px;
 }
 
 .hirdetes {
   width: 100%;
   background-color: #fff;
-  overflow: hidden;
+  border: 1px solid #dedede;
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  background-color: #fff;
 }
 
 .hirdetes .rightBorder {
@@ -133,18 +155,21 @@
 }
 
 .hirdetes .iconUser {
-  color: #343A40;
+  color: #343a40;
+  color: #00314b;
   font-size: 2.2rem;
 }
 
 .hirdetes .iconUsers {
-  color: #343A40;
+  color: #343a40;
+  color: #00314b;
   font-size: 2.2rem;
 }
 
 .hirdetes .author {
   color: #b40000;
   font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .hirdetes .author i {
@@ -152,10 +177,13 @@
 }
 
 .hirdetes h5 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   width: 100%;
-  font-size: 1.4rem;
-  background: #e6e6e6;
+  font-size: 1.2rem;
+  color: white;
+  background: -webkit-gradient(linear, left top, right top, color-stop(21%, #17829f), to(#282a58));
+  background: linear-gradient(90deg, #17829f 21%, #282a58 100%);
+  border-radius: 4px;
   overflow: hidden;
   padding: 10px;
 }
@@ -168,49 +196,47 @@
 
 .hirdetes .place {
   font-size: 0.9rem;
-  text-transform: uppercase;
-  color: #b40000;
-}
-
-.hirdetes .date {
-  font-size: 0.9rem;
-  color: #616A72;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  text-transform: capitalize;
+  color: #002d61;
 }
 
 .hirdetes .category {
   font-size: 0.9rem;
   text-transform: uppercase;
+  color: #002d61;
+  font-weight: bold;
+}
+
+.hirdetes .date {
+  font-size: 0.9rem;
+  letter-spacing: -0.5px;
+  color: #616a72;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.hirdetes .btn-moreinfo {
+  padding: 0;
+  margin: 0;
   color: #b40000;
-}
-
-.hirdetes .moreinfo a {
+  font-weight: bold;
   font-size: 0.9rem;
-  color: #616A72;
-  text-decoration: underline;
+  border-radius: 0;
+  cursor: pointer;
 }
 
-.hirdetes .btn-adMore {
-  padding: 4px 6px 4px 8px;
-  color: #616A72;
-  border: 1px solid #dd9700;
-  color: #dd9700;
-  font-size: 0.9rem;
-}
-
-.hirdetes .btn-adDelete {
+.hirdetes .btn-delete {
   width: 49%;
   padding: 5px 10px;
   font-weight: bold;
-  color: #d63939;
+  color: #b40000;
   background-color: white;
-  border: 1px solid #d63939;
+  border: 1px solid #b40000;
   font-size: 0.85rem;
 }
 
-.hirdetes .btn-adEdit {
+.hirdetes .btn-edit {
   width: 49%;
   padding: 5px 10px;
   font-weight: bold;
@@ -222,7 +248,7 @@
 
 .hirdetes .description {
   font-family: "Roboto", sans-serif;
-  color: #272727;
+  color: #707070;
 }
 
 .hirdetes .kapcsolatDetails {
@@ -241,16 +267,21 @@
   background: transparent;
 }
 
-.footer {
+.custom--footer {
   width: 100%;
-  height: 2rem;
-  padding: 0.3rem 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  background: white;
+  height: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .loginSiteContainer {
@@ -268,7 +299,7 @@
           align-items: center;
 }
 
-.loginBox {
+.login-card {
   position: relative;
   width: 100%;
   max-width: 500px;
@@ -276,18 +307,18 @@
   border: 1px solid #ddd;
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  padding: 1rem 1.5rem 0.5rem;
+  padding: 1rem;
 }
 
-.newAdBox {
+.new-post-card {
   width: 100%;
   max-width: 600px;
   background-color: #fff;
   border: 1px solid #ddd;
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.11), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  margin: 2.5rem auto 50px;
-  padding: 1rem 1.5rem;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 .newAdForm label {
@@ -344,6 +375,17 @@
 }
 
 @media (max-width: 767.98px) {
+  .nav-link {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .btn-nav {
+    margin-top: 10px;
+  }
+  .post-list-wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
   .hirdetes .hide-sm {
     display: none;
   }

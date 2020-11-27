@@ -50,7 +50,7 @@ class Login extends Component {
 
                     <CustomAlert />
 
-                    <div className="loginBox text-center mt-3">
+                    <div className="login-card text-center">
                         <h1 className="purpule-darker">Bejelentkezés</h1>
                         <p className="lead"><i className="fas fa-user"></i> Jelentkezz be a fiókodba</p>
 
