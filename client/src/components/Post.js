@@ -91,9 +91,8 @@ const Post = ({
             <div className="row">
                 <div className="d-flex col-md-12 mt-2">
                     <p className="text-justify align-self-center description">
-                        {description.substring(0, 270)}
-                        {description.length > 270 ? <b>... </b> : "  "} &nbsp; &nbsp;
-                        <Link to="#" onClick={moreInfo} className="text-secondary">
+                        {description.substring(0, 270)}{description.length > 270 ? <><b>...</b>&nbsp;</> : <>&nbsp;&nbsp;</>} 
+                        <Link to="#" onClick={moreInfo} className="darker-red">
                             <i className="fas fa-chevron-right"></i>
                         </Link>
                     </p>

@@ -17,6 +17,9 @@ $almostblack: #272727;
 .red {
     color: $red;
 }
+.darker-red {
+    color: $darker_red;
+}
 .red-darker {
     color: darken($red, 15);
 }
@@ -266,9 +269,13 @@ $almostblack: #272727;
         color: rgb(112, 112, 112);
     }
 
-    .kapcsolatDetails {
-        font-size: 0.9rem;
-
+    .kapcsolat-details {
+        font-size: 0.8rem;
+        line-height: 14px;
+        span {
+            display: inline-flex;
+            align-items: center;
+        }
         i {
             font-size: 1.2rem;
             margin-right: 5px;
@@ -296,15 +303,15 @@ $almostblack: #272727;
 }
 
 // LOGIN PAGE ----------------------------------------------------
-.loginSiteContainer {
-    padding-top: 4rem;
-    height: 70vh;
+.flexbox-center-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 75vh;
 }
 
-.login-card {
+.login-register-card {
     position: relative;
     width: 100%;
     max-width: 500px;
@@ -380,7 +387,6 @@ $almostblack: #272727;
 
 // ON SMALL DEVICES -------------------------------------
 @media (max-width: 767.98px) {
-
     .nav-link {
         margin-left: 0px;
         margin-right: 0px;
@@ -396,6 +402,10 @@ $almostblack: #272727;
 
     .hirdetes {
         .hide-sm {
+            display: none;
+        }
+
+        span.hide-sm {
             display: none;
         }
     }

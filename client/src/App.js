@@ -40,7 +40,7 @@ function App() {
             <Router>
                 <AppNavbar />
                 <div className="full-site-container">
-                    <section className="container-lg">
+                    <section className="container-lg h-100">
                         <Switch>
                             <Route exact path="/zeneszkereso/login" component={Login} />
                             <Route exact path="/zeneszkereso/dashboard" component={Dashboard} />

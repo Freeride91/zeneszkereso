@@ -10,6 +10,10 @@
   color: #b40000;
 }
 
+.darker-red {
+  color: #880000;
+}
+
 .red-darker {
   color: #680000;
 }
@@ -251,11 +255,21 @@
   color: #707070;
 }
 
-.hirdetes .kapcsolatDetails {
-  font-size: 0.9rem;
+.hirdetes .kapcsolat-details {
+  font-size: 0.8rem;
+  line-height: 14px;
 }
 
-.hirdetes .kapcsolatDetails i {
+.hirdetes .kapcsolat-details span {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hirdetes .kapcsolat-details i {
   font-size: 1.2rem;
   margin-right: 5px;
 }
@@ -284,9 +298,7 @@
           align-items: center;
 }
 
-.loginSiteContainer {
-  padding-top: 4rem;
-  height: 70vh;
+.flexbox-center-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -297,9 +309,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 75vh;
 }
 
-.login-card {
+.login-register-card {
   position: relative;
   width: 100%;
   max-width: 500px;
@@ -387,6 +403,9 @@
         grid-template-columns: 1fr;
   }
   .hirdetes .hide-sm {
+    display: none;
+  }
+  .hirdetes span.hide-sm {
     display: none;
   }
 }

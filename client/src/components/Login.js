@@ -46,11 +46,10 @@ class Login extends Component {
         }
         return this.props.isLoading ? <Spinner /> :
             <>
-                <div className="container loginSiteContainer">
-
+                <div className="flexbox-center-container">
                     <CustomAlert />
 
-                    <div className="login-card text-center">
+                    <div className="login-register-card text-center">
                         <h1 className="purpule-darker">Bejelentkezés</h1>
                         <p className="lead"><i className="fas fa-user"></i> Jelentkezz be a fiókodba</p>
 
