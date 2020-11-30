@@ -30,7 +30,7 @@ const PostDetails = ({ history, getPostById, setEditPost, deletePost, posts: { p
         <Spinner />
     ) : (
         <>
-            <div className="controlMaxWidth1200">
+            <div className="container-720">
                 <div className="py-2">
                     <Link to="/zeneszkereso/" className="text-secondary">
                         <i className="fas fa-chevron-left"></i> <b>Hirdetések</b>
@@ -50,16 +50,10 @@ const PostDetails = ({ history, getPostById, setEditPost, deletePost, posts: { p
                                 &nbsp;{post.author}
                             </div>
 
-                            <h5 className="py-2 text-center border-bottom">{post.title}</h5>
-
-                            <div className="d-flex justify-content-between">
-                                <div className="place">
-                                    <i className="fas fa-street-view"></i>&nbsp; {post.place}
-                                </div>
-                                <div className="category"> {post.instrument} </div>
-                            </div>
+                            <h5 className="py-2 text-center">{post.title}</h5>
 
                             <div className="mt-2 d-flex justify-content-between">
+                                <div className="category"> {post.instrument} </div>
                                 <div className="date">
                                     <i className="far fa-calendar-alt"></i>&nbsp;&nbsp;
                                     <Moment locale="hu" format="MMMM Do, HH:mm">
@@ -67,11 +61,17 @@ const PostDetails = ({ history, getPostById, setEditPost, deletePost, posts: { p
                                     </Moment>
                                 </div>
                             </div>
+
+                            <div className="pb-3 pt-2 d-flex justify-content-between  border-bottom">
+                                <div className="place">
+                                    <i className="fas fa-street-view"></i>&nbsp; {post.place}
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div className="d-flex">
-                        <p className="text-justify description mt-4">{post.description}</p>
+                        <p className="text-justify description mt-4 mb-1">{post.description}</p>
                     </div>
 
                     <hr />
