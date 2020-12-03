@@ -23,10 +23,6 @@ import PostDetails from "./components/PostDetails";
 
 import setAuthToken from "./utils/setAuthToken";
 
-// if (localStorage.token) {
-//   setAuthToken(localStorage.token);
-// }
-
 function App() {
     useEffect(() => {
         if (localStorage.token) {

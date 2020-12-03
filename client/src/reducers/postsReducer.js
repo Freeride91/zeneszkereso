@@ -1,13 +1,4 @@
-import {
-    GET_POSTS,
-    GET_POST,
-    SET_EDIT_POST,
-    EDIT_POST,
-    ADD_POST,
-    DELETE_POST,
-    POST_ERROR,
-    FILTER_BY_DATA
-} from '../actions/types';
+import { GET_POSTS, GET_POST, SET_EDIT_POST, EDIT_POST, ADD_POST, DELETE_POST, POST_ERROR, FILTER_BY_DATA } from "../actions/types";
 
 const initialState = {
     posts: [],
@@ -16,8 +7,8 @@ const initialState = {
     filtering: false,
     editing: false,
     loading: true,
-    error: {}
-}
+    error: {},
+};
 
 export default function (state = initialState, action) {
     const { type, payload } = action;
@@ -30,21 +21,21 @@ export default function (state = initialState, action) {
                 post: null,
                 filtering: false,
                 editing: false,
-                loading: false
-            }
+                loading: false,
+            };
         case GET_POST:
             return {
                 ...state,
                 post: payload,
-                loading: false
-            }
+                loading: false,
+            };
         case SET_EDIT_POST:
             return {
                 ...state,
-                editing: payload
-            }
+                editing: payload,
+            };
         case EDIT_POST:
-            const newPosts = state.posts.map(post => {
+            const newPosts = state.posts.map((post) => {
                 if (post._id === payload._id) {
                     return payload;
                 } else {
@@ -56,22 +47,22 @@ export default function (state = initialState, action) {
                 posts: newPosts,
                 post: payload,
                 loading: false,
-                editing: false
-            }
+                editing: false,
+            };
         case ADD_POST:
             return {
                 ...state,
                 posts: [payload, ...state.posts],
                 filtering: false,
                 editing: false,
-                loading: false
-            }
+                loading: false,
+            };
         case DELETE_POST:
             return {
                 ...state,
-                posts: state.posts.filter(post => post._id !== payload),
-                loading: false
-            }
+                posts: state.posts.filter((post) => post._id !== payload),
+                loading: false,
+            };
         case POST_ERROR:
             return {
                 ...state,
@@ -80,22 +71,22 @@ export default function (state = initialState, action) {
                 filtering: false,
                 editing: false,
                 loading: false,
-            }
+            };
         case FILTER_BY_DATA:
             return {
                 ...state,
-                filteredPosts: state.posts.filter(post => {
+                filteredPosts: state.posts.filter((post) => {
                     if (
-                        (post.instrument.toLowerCase().includes(payload.instrument.toLowerCase())) &&
-                        (post.place.toLowerCase().includes(payload.place.toLowerCase()))
+                        post.instrument.toLowerCase().includes(payload.instrument.toLowerCase()) &&
+                        post.place.toLowerCase().includes(payload.place.toLowerCase())
                     ) {
                         if (payload.person) {
-                            if (post.pers_or_band === 'person') {
+                            if (post.pers_or_band === "person") {
                                 return post;
                             }
                         }
                         if (payload.band) {
-                            if (post.pers_or_band === 'band') {
+                            if (post.pers_or_band === "band") {
                                 return post;
                             }
                         }
@@ -103,8 +94,8 @@ export default function (state = initialState, action) {
                     return false;
                 }),
                 filtering: true,
-                loading: false
-            }
+                loading: false,
+            };
         default:
             return state;
     }
