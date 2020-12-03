@@ -149,7 +149,7 @@
   padding-bottom: 20px;
 }
 
-.hirdetes {
+.post {
   width: 100%;
   background-color: #fff;
   border: 1px solid #dedede;
@@ -159,33 +159,33 @@
   background-color: #fff;
 }
 
-.hirdetes .rightBorder {
+.post .rightBorder {
   border-right: 1px solid #dedede;
 }
 
-.hirdetes .iconUser {
+.post .iconUser {
   color: #343a40;
   color: #00314b;
   font-size: 2.2rem;
 }
 
-.hirdetes .iconUsers {
+.post .iconUsers {
   color: #343a40;
   color: #00314b;
   font-size: 2.2rem;
 }
 
-.hirdetes .author {
+.post .author {
   color: #b40000;
   font-size: 0.9rem;
   font-weight: bold;
 }
 
-.hirdetes .author i {
+.post .author i {
   font-size: 0.8rem;
 }
 
-.hirdetes h5 {
+.post h5 {
   font-family: "Ubuntu", sans-serif;
   width: 100%;
   font-size: 1.2rem;
@@ -197,26 +197,26 @@
   padding: 10px;
 }
 
-.hirdetes p {
+.post p {
   font-size: 1rem;
   margin-bottom: 0;
   line-height: 1.4;
 }
 
-.hirdetes .place {
+.post .place {
   font-size: 0.9rem;
   text-transform: capitalize;
   color: #002d61;
 }
 
-.hirdetes .category {
+.post .category {
   font-size: 0.9rem;
   text-transform: uppercase;
   color: #002d61;
   font-weight: bold;
 }
 
-.hirdetes .date {
+.post .date {
   font-size: 0.9rem;
   letter-spacing: -0.5px;
   color: #616a72;
@@ -225,7 +225,7 @@
       align-self: center;
 }
 
-.hirdetes .btn-moreinfo {
+.post .btn-moreinfo {
   padding: 0;
   margin: 0;
   color: #b40000;
@@ -235,7 +235,7 @@
   cursor: pointer;
 }
 
-.hirdetes .btn-delete {
+.post .btn-delete {
   width: 49%;
   padding: 5px 10px;
   font-weight: bold;
@@ -245,7 +245,7 @@
   font-size: 0.85rem;
 }
 
-.hirdetes .btn-edit {
+.post .btn-edit {
   width: 49%;
   padding: 5px 10px;
   font-weight: bold;
@@ -255,17 +255,17 @@
   font-size: 0.85rem;
 }
 
-.hirdetes .description {
+.post .description {
   font-family: "Roboto", sans-serif;
   color: #707070;
 }
 
-.hirdetes .kapcsolat-details {
+.post .kapcsolat-details {
   font-size: 0.8rem;
   line-height: 14px;
 }
 
-.hirdetes .kapcsolat-details span {
+.post .kapcsolat-details span {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -274,12 +274,12 @@
           align-items: center;
 }
 
-.hirdetes .kapcsolat-details i {
+.post .kapcsolat-details i {
   font-size: 1.2rem;
   margin-right: 5px;
 }
 
-.hirdetes .tr-footer {
+.post .tr-footer {
   display: block;
   height: 150px;
   width: 100px;
@@ -407,10 +407,10 @@
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
-  .hirdetes .hide-sm {
+  .post .hide-sm {
     display: none;
   }
-  .hirdetes span.hide-sm {
+  .post span.hide-sm {
     display: none;
   }
 }

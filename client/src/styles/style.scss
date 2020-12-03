@@ -157,7 +157,7 @@ $almostblack: #272727;
     padding-bottom: 20px;
 }
 
-.hirdetes {
+.post {
     width: 100%;
     background-color: #fff;
     border: 1px solid #dedede;
@@ -203,10 +203,8 @@ $almostblack: #272727;
         width: 100%;
         font-size: 1.2rem;
         color: white;
-        // background-color: #691414;
         background: linear-gradient(90deg, rgba(23, 130, 159, 1) 21%, rgba(40, 42, 88, 1) 100%);
         border-radius: 4px;
-        // background: rgb(243, 243, 243);
         overflow: hidden;
         padding: 10px;
     }
@@ -238,8 +236,6 @@ $almostblack: #272727;
     }
 
     .btn-moreinfo {
-        // padding: 4px 6px 4px 8px;
-        // border: 1px solid $red;
         padding: 0;
         margin: 0;
         color: $red;
@@ -405,7 +401,7 @@ $almostblack: #272727;
         grid-template-columns: 1fr;
     }
 
-    .hirdetes {
+    .post {
         .hide-sm {
             display: none;
         }

@@ -29,7 +29,7 @@ const Post = ({
     };
 
     return (
-        <div className="hirdetes">
+        <div className="post">
             <div className="row mb-2 pb-2 border-bottom">
                 {/* <div className="d-flex col-md-2 justify-content-center align-items-center px-0">
                         {pers_or_band === "person" ? <i className="fas fa-user iconUser"></i> : <i className="fas fa-users iconUsers"></i>}

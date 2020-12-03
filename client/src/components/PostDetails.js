@@ -38,7 +38,7 @@ const PostDetails = ({ history, getPostById, setEditPost, deletePost, posts: { p
                 </div>
 
                 <CustomAlert />
-                <div className="hirdetes">
+                <div className="post">
                     <div className="p-1 mb-2 text-center">
                         {post.pers_or_band === "person" ? <i className="fas fa-user iconUser"></i> : <i className="fas fa-users iconUsers"></i>}
                     </div>
