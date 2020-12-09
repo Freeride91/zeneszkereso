@@ -49,7 +49,7 @@ function App() {
                     </section>
                 </div>
 
-                <footer className="custom--footer">- &copy; Polyak Studio 2019 - All Rights Reserved -</footer>
+                <footer className="custom--footer">- &copy;&nbsp;<b>Andras Polyak</b>&nbsp;2019 - All Rights Reserved -</footer>
             </Router>
         </Provider>
     );

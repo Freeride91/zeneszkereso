@@ -8,6 +8,15 @@ $text-secondary: #616a72;
 $bs-secondary: #343a40;
 $almostblack: #272727;
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
 .purpule {
     color: $purpule;
 }
@@ -122,6 +131,25 @@ $almostblack: #272727;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    span {
+        text-align: center;
+        margin-top: 10px;
+        color: #666;
+        font-size: 1.2rem;
+      //   transition: all 0.5s ease;
+
+        animation-name: fadeIn;
+        animation-duration: 2s;
+        animation-delay: 1s;
+        animation-fill-mode: both;
+    }
 }
 
 .container-720 {
