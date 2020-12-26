@@ -10,16 +10,29 @@ const Posts = ({ history, getPosts, posts: { posts, filteredPosts, filtering, lo
         getPosts();
     }, [getPosts]);
 
-    let renderedPosts;
     if (loading) {
-        renderedPosts = <Spinner />;
+        return (
+            <div className="post-list-wrapper">
+                <Spinner />;
+            </div>
+        );
     } else if (filtering) {
-        renderedPosts = filteredPosts.map((post) => <Post history={history} key={post._id} post={post} />);
+        return (
+            <div className="post-list-wrapper">
+                {filteredPosts.map((post) => (
+                    <Post history={history} key={post._id} post={post} />
+                ))}
+            </div>
+        );
     } else {
-        renderedPosts = posts.map((post) => <Post history={history} key={post._id} post={post} />);
+        return (
+            <div className="post-list-wrapper">
+                {posts.map((post) => (
+                    <Post history={history} key={post._id} post={post} />
+                ))}
+            </div>
+        );
     }
-
-    return <div className="post-list-wrapper">{renderedPosts}</div>;
 };
 
 Posts.propTypes = {

@@ -35,6 +35,7 @@ function App() {
         <Provider store={store}>
             <Router>
                 <AppNavbar />
+                
                 <div className="full-site-container">
                     <section className="container-lg h-100">
                         <Switch>

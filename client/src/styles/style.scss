@@ -326,9 +326,11 @@ $almostblack: #272727;
     height: 30px;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
+    word-spacing: 0.1em;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 // LOGIN PAGE ----------------------------------------------------
@@ -437,5 +439,9 @@ $almostblack: #272727;
         span.hide-sm {
             display: none;
         }
+    }
+
+    .custom--footer {
+       font-size: 12px;
     }
 }

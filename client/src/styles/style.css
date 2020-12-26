@@ -339,6 +339,7 @@
   height: 30px;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
+  word-spacing: 0.1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -459,6 +460,9 @@
   }
   .post span.hide-sm {
     display: none;
+  }
+  .custom--footer {
+    font-size: 12px;
   }
 }
 /*# sourceMappingURL=style.css.map */
